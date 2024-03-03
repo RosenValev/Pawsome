@@ -15,16 +15,16 @@ const register = async (req, res, next) => {
             return res.status(409).json({ message: `Email ${email} already in use` });
         }
 
-        let createdUser = User.create({ username, email, password, repeatPassword })
+        let createdUser = await User.create({ username, email, password, repeatPassword })
         createdUser = bsonToJson(createdUser);
         createdUser = removePassword(createdUser);
 
-        const token = jwt.generateToken({ id: createdUser._id });
-        if (process.env.NODE_ENV === 'production') {
-            res.cookie('auth', token, { httpOnly: true, sameSite: 'none', secure: true })
-        } else {
-            res.cookie('auth', token, { httpOnly: true })
-        }
+        // const token = jwt.generateToken({ id: createdUser._id });
+        // if (process.env.NODE_ENV === 'production') {
+        //     res.cookie('auth', token, { httpOnly: true, sameSite: 'none', secure: true })
+        // } else {
+        //     res.cookie('auth', token, { httpOnly: true })
+        // }
         res.status(200).send(createdUser);
 
     } catch (err) {
@@ -43,7 +43,7 @@ const register = async (req, res, next) => {
 const login = async (req, res, next) => {
     const { email, password } = req.body;
     try {
-        const user = await User.findOne({ email });
+        let user = await User.findOne({ email });
         if (!user) {
             return res.status(400).json({ message: "Email or password don't match!" });
         }
@@ -72,7 +72,7 @@ const logout = async (req, res) => {
     const token = req.cookies.auth;
     try {
         res.clearCookie('auth');
-        res.status(204).json({ message: 'Logged out!' });
+        res.status(200).json({ message: 'Logged out!' });
     } catch (err) {
         res.send(err)
     }

@@ -1,12 +1,11 @@
 const { body } = require('express-validator');
 
-
-const loginValidation = [
-    body('username').notEmpty().withMessage('Username is required!').toLowerCase().trim(),
+exports.loginValidation = [
+    body('email').notEmpty().withMessage('Username is required!').toLowerCase().trim(),
     body('password').notEmpty().withMessage('Password is required!').trim(),
 ];
 
-const registerValidation = [
+exports.registerValidation = [
     body('username').notEmpty().withMessage('Username is required!').toLowerCase().trim(),
     body('email')
         .notEmpty()
@@ -24,8 +23,3 @@ const registerValidation = [
         .matches(/\d/)
         .withMessage('Password must contain at least 1 digit'),
 ];
-
-module.exports = {
-    loginValidation,
-    registerValidation
-}
