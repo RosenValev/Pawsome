@@ -8,7 +8,7 @@ module.exports = async (req, res, next) => {
         req.user = data;
         req.isLogged = true;
     } catch (err) {
-        res.clearCookie(token);
+        res.clearCookie('auth');
         return res.status(401).json({ message: 'Invalid token!' });
     }
     next();
