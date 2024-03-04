@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none outside;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.container {
+    max-width: 1340px;
+    margin: 0 auto;
+}
+
+.site-section {
+    padding: 1rem;
+}

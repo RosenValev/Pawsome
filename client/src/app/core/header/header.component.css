@@ -1,0 +1,55 @@
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1A4E8D;
+}
+
+.site-title a {
+    display: block;
+    width: 200px;
+    height: 60px;
+    overflow: hidden;
+    text-indent: -200vw;
+    background-image: url('../../../assets/pawsome-log.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.navigation ul {
+    display: flex;
+    gap: 4rem;
+}
+
+.navigation ul a {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #424955;
+}
+
+.navigation ul a:hover {
+    color: #1A4E8D;
+    text-shadow: 1px 1px 4px #1A4E8D;
+    transition: all 0.2s ease;
+}
+
+.btn {
+    padding: 0.7rem 1.8rem;
+    font-size: 1.7rem;
+    letter-spacing: 0.75px;
+    font-weight: 600;
+    background-color: #1A4E8D;
+    border: 2px solid #1A4E8D;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 15px;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #1A4E8D;
+    border: 2px solid #1A4E8D;
+    text-shadow: 1px 1px 4px #1A4E8D;
+    transition: all 0.2s ease;
+}
