@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-
+:root {
+    --main-blue-color: #1A4E8D;
+    --main-grey-color: #424955;
+}
 
 * {
     padding: 0;

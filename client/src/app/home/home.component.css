@@ -1,0 +1,165 @@
+.site-home .welcome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome .text {
+    flex: 0 1 35%;
+    padding-left: 1rem;
+}
+
+.text h1 {
+    color: var(--main-blue-color);
+    font-size: 6rem;
+    padding-bottom: 2rem;
+}
+
+.text p {
+    color: var(--main-grey-color);
+    font-size: 1.8rem;
+    padding-bottom: 3rem;
+    line-height: 1.3;
+
+}
+
+.btn {
+    font-size: 1.6rem;
+    padding: 0.9rem 1.8rem;
+    background-color: #9BEFE0;
+    border: 2px solid #9BEFE0;
+    color: var(--main-grey-color);
+    border-radius: 20px;
+}
+
+.btn:hover {
+    text-shadow: 1px 1px 4px var(--main-grey-color);
+    transition: all 0.2s ease;
+    background-color: #cdf7f0;
+}
+
+.welcome .img-wrapper {
+    flex: 0 1 63%;
+
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+
+.cat {
+    align-self: flex-end;
+    position: relative;
+    z-index: 1;
+}
+
+.cat img {
+    height: 19rem;
+    width: auto;
+}
+
+.cat::before {
+    content: '';
+    display: block;
+    height: 15rem;
+    width: 15rem;
+    background-color: #FF8D6B;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    bottom: 5%;
+}
+
+.cat:hover::before {
+    background-color: #ffaf97;
+}
+
+.cat::after {
+    content: '';
+    display: block;
+    height: 5rem;
+    width: 5rem;
+    background-color: #9BEFE0;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    top: -35%;
+}
+
+.small-dog {
+    align-self: center;
+    position: relative;
+    z-index: 1;
+}
+
+.small-dog img {
+    height: 15rem;
+    width: auto;
+}
+
+.small-dog::before {
+    content: '';
+    display: block;
+    height: 12rem;
+    width: 12rem;
+    background-color: #1B4F8D;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    bottom: 5%;
+}
+
+.small-dog:hover::before {
+    background-color: #8da7c6;
+}
+
+.small-dog::after {
+    content: '';
+    display: block;
+    height: 4rem;
+    width: 4rem;
+    background-color: #FFDC6E;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    top: -35%;
+    right: -5%;
+}
+
+.big-dog {
+    position: relative;
+    z-index: 1;
+}
+
+.big-dog:hover::before {
+    background-color: #cdf7f0;
+}
+
+.big-dog img {
+    height: 41rem;
+    width: auto;
+}
+
+.big-dog::before {
+    content: '';
+    display: block;
+    height: 30rem;
+    width: 30rem;
+    background-color: #9BEFE0;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+}
+
+.big-dog::after {
+    content: '';
+    display: block;
+    height: 3rem;
+    width: 3rem;
+    background-color: #DCF237;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    bottom: 15%;
+    left: -15%;
+}
