@@ -1,0 +1,109 @@
+.site-section {
+    background-color: #9BEFE0;
+}
+
+.site-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3rem;
+}
+
+.site-title img {
+    width: 20rem;
+    height: auto;
+}
+
+.site-title img:hover {
+    transform: scale(1.01);
+    transition: all 0.3s ease;
+}
+
+.text-container {
+    display: flex;
+    gap: 1rem;
+    color: var(--main-grey-color);
+
+}
+
+.left-side {
+    flex: 0 1 50%;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.left-side h5 {
+    font-size: 2.4rem;
+}
+
+.left-side p,
+.left-side a {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--main-grey-color);
+}
+
+.left-side span {
+    color: var(--main-blue-color);
+    font-weight: 700;
+    font-size: 1.7rem;
+}
+
+.right-side {
+    flex: 0 1 50%;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+
+}
+
+.right-side ul {
+    display: flex;
+    font-size: 2.4rem;
+    justify-content: flex-end;
+    gap: 3rem;
+}
+
+ul a {
+    color: var(--main-grey-color);
+    font-weight: 500;
+}
+
+ul a:hover {
+    color: var(--main-blue-color);
+    text-shadow: 1px 1px 4px var(--main-blue-color);
+    transition: all 0.2s ease;
+}
+
+.socials {
+    display: flex;
+    justify-content: flex-end;
+    gap: 3rem;
+}
+
+.fa-brands {
+    font-size: 2.6rem;
+}
+
+.fa-brands:hover {
+    transform: scale(1.3);
+    transition: all 0.3s ease;
+}
+
+.fa-twitter {
+    color: #2EBAE8;
+}
+
+.fa-facebook {
+    color: #2E6FE8;
+}
+
+.fa-linkedin {
+    color: #5880DE;
+}
+
+.fa-youtube {
+    color: #E82E2E;
+}

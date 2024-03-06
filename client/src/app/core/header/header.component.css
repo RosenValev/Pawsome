@@ -17,6 +17,11 @@
     background-repeat: no-repeat;
 }
 
+.site-title a:hover {
+    transform: scale(1.01);
+    transition: all 0.3s ease;
+}
+
 .navigation ul {
     display: flex;
     gap: 4rem;
