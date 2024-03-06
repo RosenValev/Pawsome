@@ -35,7 +35,7 @@
 }
 
 .btn {
-    padding: 0.7rem 1.8rem;
+    padding: 0.9rem 1.8rem;
     font-size: 1.7rem;
     letter-spacing: 0.75px;
     font-weight: 600;
@@ -52,4 +52,6 @@
     border: 2px solid var(--main-blue-color);
     text-shadow: 1px 1px 4px var(--main-blue-color);
     transition: all 0.2s ease;
+    box-shadow: 0 2px 8px 0 rgb(0, 0, 0, 0.3);
+
 }
