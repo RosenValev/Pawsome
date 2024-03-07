@@ -1,3 +1,9 @@
+
+/* TODO this padding is related to footer positioning */
+.site-home {
+    padding-bottom: 20rem;
+}
+
 .site-home .welcome {
     display: flex;
     justify-content: space-between;
