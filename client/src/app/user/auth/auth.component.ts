@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AuthComponent {
 
+  rightPanelActive: boolean = false;
+
+  toggleRightPanel(): void {
+    this.rightPanelActive = !this.rightPanelActive;
+  }
+
 }
