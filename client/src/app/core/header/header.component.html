@@ -1,6 +1,6 @@
 <header class="site-section site-header container">
     <div class="site-title">
-        <a href=""><img src="../../../assets/pawsome-log.png" alt="pawsome-logo">Pawsome</a>
+        <a routerLink="home"><img src="../../../assets/pawsome-log.png" alt="pawsome-logo">Pawsome</a>
     </div>
     <div class="navigation">
         <ul>
@@ -11,6 +11,6 @@
         </ul>
     </div>
     <div class="sing-in">
-        <a href="" class="btn">sign in</a>
+        <a [routerLink]="['auth']" class="btn">sign in</a>
     </div>
 </header>

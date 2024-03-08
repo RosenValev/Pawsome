@@ -1,4 +1,4 @@
-<div class="container" [ngClass]="{'right-panel-active': rightPanelActive}">
+<div class="container" [class.right-panel-active]="rightPanelActive">
     <div class="auth-container ">
         <!-- Sign up form -->
         <div class="form-container sign-up-container">
@@ -10,10 +10,10 @@
                     <a href="" class="social"></a>
                 </div>
                 <span>or Use Your Email For Registration</span> -->
-                <input type="text" placeholder="Username" required>
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
-                <input type="password" placeholder="Repeat Password" required>
+                <input type="text" name="username" id="username" placeholder="Username" required>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+                <input type="password" name="repeatPassword" id="repeatPassword" placeholder="Repeat Password" required>
                 <button>Sign Up</button>
             </form>
         </div>
@@ -28,8 +28,8 @@
                     <a href="" class="social"></a>
                 </div>
                 <span>or Use Your Account</span> -->
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+                <input type="password" name="password" id="password" placeholder="Password" required>
                 <button>Sign In</button>
                 <a href="">Forgot your password?</a>
             </form>
