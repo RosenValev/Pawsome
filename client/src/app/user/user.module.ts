@@ -4,13 +4,15 @@ import { AuthComponent } from './auth/auth.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
 import { UserRoutingModule } from './user-routing.module';
+import { BookingComponent } from './booking/booking.component';
 
 
 
 @NgModule({
   declarations: [
     AuthComponent,
-    ProfileComponent
+    ProfileComponent,
+    BookingComponent
   ],
   imports: [
     CommonModule, RouterModule, UserRoutingModule

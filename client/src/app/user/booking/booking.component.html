@@ -1,0 +1,27 @@
+<p>booking works!</p>
+
+
+<form (ngSubmit)="submitBookingForm()" #bookingForm="ngForm">
+    <div class="form-group">
+        <label for="petName">Pet Name</label>
+        <input type="text" class="form-control" id="petName" name="petName" ngModel required>
+    </div>
+    <div class="form-group">
+        <label for="petType">Pet Type</label>
+        <select class="form-control" id="petType" name="petType" ngModel required>
+            <option value="">Select Pet Type</option>
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+            <!-- Add more options for other pet types if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="appointmentDate">Appointment Date</label>
+        <input type="datetime-local" class="form-control" id="appointmentDate" name="appointmentDate" ngModel required>
+    </div>
+    <div class="form-group">
+        <label for="reason">Reason for Appointment</label>
+        <textarea class="form-control" id="reason" name="reason" ngModel required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="bookingForm.invalid">Book Appointment</button>
+</form>
