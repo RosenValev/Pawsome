@@ -9,6 +9,7 @@ import { UserModule } from './user/user.module';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     CoreModule,
     UserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
   ],
   providers: [],

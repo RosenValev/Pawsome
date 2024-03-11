@@ -10,14 +10,14 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: [true, 'Email is required'],
-        validate: {
-            validator: async function (value) {
-                // Custom validation logic to check uniqueness
-                const email = await this.constructor.findOne({ email: value });
-                return !email;
-            },
-            message: 'Email already exists',
-        },
+        // validate: {
+        //     validator: async function (value) {
+        //         // Custom validation logic to check uniqueness
+        //         const email = await this.constructor.findOne({ email: value });
+        //         return !email;
+        //     },
+        //     message: 'Email already exists',
+        // },
         minLength: [5, 'must be at least 5 characters long'],
     },
     password: {

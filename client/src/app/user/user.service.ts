@@ -11,9 +11,12 @@ export class UserService {
 
   private API = 'http://localhost:3000/users'
 
-  onRegister(username: string, email: string, password: string, repeatPassword: string) {
-    const payload = { username, email, password, repeatPassword };
+  onRegister(payload: { username: string, email: string, password: string, repeatPassword: string }) {
     return this.http.post<User>(`${this.API}/register`, payload);
+  }
+
+  onLogin(payload: { email: string, password: string }) {
+    return this.http.post<User>(`${this.API}/login`, payload)
   }
 
 }

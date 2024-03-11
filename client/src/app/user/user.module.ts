@@ -5,6 +5,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
 import { UserRoutingModule } from './user-routing.module';
 import { BookingComponent } from './booking/booking.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,7 @@ import { BookingComponent } from './booking/booking.component';
     BookingComponent
   ],
   imports: [
-    CommonModule, RouterModule, UserRoutingModule
+    CommonModule, RouterModule, UserRoutingModule, ReactiveFormsModule
   ],
   exports: [AuthComponent, ProfileComponent]
 })
