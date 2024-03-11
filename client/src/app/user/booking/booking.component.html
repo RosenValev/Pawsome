@@ -1,27 +1,17 @@
-<p>booking works!</p>
-
-
-<form (ngSubmit)="submitBookingForm()">
-    <div class="form-group">
-        <label for="petName">Pet Name</label>
-        <input type="text" class="form-control" id="petName" name="petName" ngModel required>
+<div class="container site-section">
+    <div class="booking-container">
+        <div class="img-wrapper"></div>
+        <form>
+            <h1>Book an appointment</h1>
+            <input type="text" class="form-control" name="petName" id="petName" placeholder="Name of your pet"
+                formControlName="petName">
+            <input type="text" class="form-control" name="petType" id="petType" placeholder="Kind of animal"
+                formControlName="petType">
+            <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Phone"
+                formControlName="phoneNumber">
+            <textarea class="form-control" id="reason" placeholder="Your message" formControlName="reason"></textarea>
+            <button type="submit" class="btn">Submit</button>
+            <p>We`ll call you for further information...</p>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="petType">Pet Type</label>
-        <select class="form-control" id="petType" name="petType" ngModel required>
-            <option value="">Select Pet Type</option>
-            <option value="Dog">Dog</option>
-            <option value="Cat">Cat</option>
-            <!-- Add more options for other pet types if needed -->
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="appointmentDate">Appointment Date</label>
-        <input type="datetime-local" class="form-control" id="appointmentDate" name="appointmentDate" ngModel required>
-    </div>
-    <div class="form-group">
-        <label for="reason">Reason for Appointment</label>
-        <textarea class="form-control" id="reason" name="reason" ngModel required></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary" >Book Appointment</button>
-</form>
+</div>
