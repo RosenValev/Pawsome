@@ -14,8 +14,8 @@ export class AuthComponent implements OnInit {
   ) { }
 
   rightPanelActive: boolean = false;
-  signUpForm!: FormGroup;
-  signInForm!: FormGroup;
+  signUpForm!: FormGroup
+  signInForm!: FormGroup
 
 
   ngOnInit(): void {
@@ -25,17 +25,17 @@ export class AuthComponent implements OnInit {
 
   signUpFormInitialize() {
     this.signUpForm = this.fb.group({
-      username: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      repeatPassword: ['', Validators.required],
+      username: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      repeatPassword: ['', [Validators.required]],
     });
   }
 
   signInFormInitialize() {
     this.signInForm = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     })
   }
 
@@ -44,13 +44,13 @@ export class AuthComponent implements OnInit {
   }
 
   onRegisterHandler() {
-    this.userService.onRegister(this.signUpForm.value).subscribe(result => {
+    this.userService.onRegister(this.signUpForm?.value).subscribe(result => {
       console.log(result)
     })
   }
 
   onLoginHandler() {
-    this.userService.onLogin(this.signInForm.value).subscribe(result => {
+    this.userService.onLogin(this.signInForm?.value).subscribe(result => {
       console.log(result)
     })
   }

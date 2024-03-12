@@ -10,12 +10,10 @@
                     <a href="" class="social"></a>
                 </div>
                 <span>or Use Your Email For Registration</span> -->
-                <input type="text" name="username" id="username" placeholder="Username" formControlName="username"
-                    required>
-                <input type="email" name="email" id="email" placeholder="Email" formControlName="email" required>
-                <input type="password" name="password" id="password" placeholder="Password" formControlName="password"
-                    required>
-                <input type="password" name="repeatPassword" id="repeatPassword" placeholder="Repeat Password"
+                <input type="text" id="username" placeholder="Username" formControlName="username" required>
+                <input type="email" id="email" placeholder="Email" formControlName="email" required>
+                <input type="password" id="password" placeholder="Password" formControlName="password" required>
+                <input type="password" id="repeatPassword" placeholder="Repeat Password"
                     formControlName="repeatPassword" required>
                 <button type="submit" [disabled]="signUpForm.invalid">Sign Up</button>
             </form>
@@ -31,9 +29,8 @@
                     <a href="" class="social"></a>
                 </div>
                 <span>or Use Your Account</span> -->
-                <input type="email" name="email" id="email" placeholder="Email" formControlName="email" required>
-                <input type="password" name="password" id="password" placeholder="Password" formControlName="password"
-                    required>
+                <input type="email" id="email" placeholder="Email" formControlName="email" required>
+                <input type="password" id="password" placeholder="Password" formControlName="password" required>
                 <button type="submit" [disabled]="signInForm.invalid">Sign In</button>
                 <a href="">Forgot your password?</a>
             </form>

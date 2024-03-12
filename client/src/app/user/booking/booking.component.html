@@ -1,7 +1,7 @@
 <div class="container site-section">
     <div class="booking-container">
         <div class="img-wrapper"></div>
-        <form>
+        <form [formGroup]="bookingForm" (ngSubmit)="submitBookingForm()">
             <h1>Book an appointment</h1>
             <input type="text" class="form-control" name="petName" id="petName" placeholder="Name of your pet"
                 formControlName="petName">
