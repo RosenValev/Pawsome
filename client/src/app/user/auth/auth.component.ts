@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { passwordMatch } from 'src/app/shared/passwordMatch';
+import { emailPattern } from 'src/app/shared/emailPattern';
 
 @Component({
   selector: 'app-auth',
@@ -13,45 +15,53 @@ export class AuthComponent implements OnInit {
     private fb: FormBuilder
   ) { }
 
-  rightPanelActive: boolean = false;
-  signUpForm!: FormGroup
-  signInForm!: FormGroup
-
-
   ngOnInit(): void {
     this.signUpFormInitialize();
     this.signInFormInitialize();
-  }
+  };
+
+  rightPanelActive: boolean = false;
+  signUpForm!: FormGroup;
+  signInForm!: FormGroup;
 
   signUpFormInitialize() {
     this.signUpForm = this.fb.group({
       username: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.pattern(emailPattern)]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       repeatPassword: ['', [Validators.required]],
-    });
-  }
+    },
+      {
+        validators: [passwordMatch("password", "repeatPassword")]
+      });
+  };
 
   signInFormInitialize() {
     this.signInForm = this.fb.group({
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.pattern(emailPattern)]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     })
-  }
+  };
 
   toggleRightPanel(): void {
     this.rightPanelActive = !this.rightPanelActive;
-  }
+  };
 
-  onRegisterHandler() {
-    this.userService.onRegister(this.signUpForm?.value).subscribe(result => {
-      console.log(result)
-    })
-  }
+  registerHandler() {
+    if (this.signUpForm.valid) {
+      this.userService.register(this.signUpForm?.value).subscribe(result => {
+        console.log(result)
+      })
+    }
+  };
 
-  onLoginHandler() {
-    this.userService.onLogin(this.signInForm?.value).subscribe(result => {
-      console.log(result)
-    })
-  }
+  loginHandler() {
+    if (this.signInForm.valid) {
+      this.userService.login(this.signInForm?.value).subscribe(result => {
+        console.log(result)
+      })
+    }
+  };
+
+
 }
