@@ -5,6 +5,10 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: [true, 'title is required'],
     },
+    subTitle: {
+        type: String,
+        required: [true, 'subTitle is required'],
+    },
     imageUrl: {
         type: String,
         required: [true, 'image is required'],

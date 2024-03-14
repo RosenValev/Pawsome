@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BlogModule } from './blog/blog.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     CoreModule,
     UserModule,
+    BlogModule,
     ReactiveFormsModule,
     AppRoutingModule,
   ],

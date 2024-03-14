@@ -18,12 +18,12 @@ const userSchema = new mongoose.Schema({
         //     },
         //     message: 'Email already exists',
         // },
-        minLength: [5, 'must be at least 5 characters long'],
+        minLength: [6, 'must be at least 6 characters long'],
     },
     password: {
         type: String,
         required: [true, 'Password is required'],
-        minLength: [3, 'Password must be at least 3 characters long'],
+        minLength: [6, 'Password must be at least 6 characters long'],
     },
     avatar: {
         type: String,
