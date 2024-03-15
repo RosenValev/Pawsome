@@ -19,4 +19,19 @@ export class UserService {
     return this.http.post<User>(`${this.API}/login`, payload)
   }
 
+
+  getJwtToken(): void {
+    localStorage.getItem('auth');
+  }
+
+  setJwtToken(token: string): void {
+    return localStorage.setItem('auth', token);
+  }
+
+  clearJwtToken(): void {
+    return localStorage.removeItem('jwtToken');
+  }
+
+
 }
+

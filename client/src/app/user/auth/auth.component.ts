@@ -51,6 +51,7 @@ export class AuthComponent implements OnInit {
     if (this.signUpForm.valid) {
       this.userService.register(this.signUpForm?.value).subscribe(result => {
         console.log(result)
+        this.signUpForm.reset();
       })
     }
   };
@@ -59,6 +60,7 @@ export class AuthComponent implements OnInit {
     if (this.signInForm.valid) {
       this.userService.login(this.signInForm?.value).subscribe(result => {
         console.log(result)
+        this.signInForm.reset();
       })
     }
   };

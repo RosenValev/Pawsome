@@ -11,6 +11,7 @@ import { ErrorComponent } from './error/error.component';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BlogModule } from './blog/blog.module';
+import { ResponseInterceptorProvider } from './user/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { BlogModule } from './blog/blog.module';
     ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [ResponseInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
