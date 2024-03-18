@@ -16,7 +16,7 @@ export class UserService {
   }
 
   login(payload: { email: string, password: string }) {
-    return this.http.post<User>(`${this.API}/login`, payload)
+    return this.http.post<User>(`${this.API}/login`, payload, { observe: 'response' })
   }
 
 

@@ -10,6 +10,9 @@ export class ResponseInterceptor implements HttpInterceptor {
     constructor(private userService: UserService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        request = request.clone({
+            withCredentials: true,
+        });
         return next.handle(request).pipe(
             tap((event: HttpEvent<any>) => {
                 if (event instanceof HttpResponse) {
