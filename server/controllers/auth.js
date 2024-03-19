@@ -58,11 +58,11 @@ const login = async (req, res, next) => {
         const token = jwt.generateToken({ id: user._id });
         user = {...user, token};
 
-        if (process.env.NODE_ENV === 'production') {
-            res.cookie('auth', token, { httpOnly: true, sameSite: 'none', secure: true })
-        } else {
-            res.cookie('auth', token, { httpOnly: true, sameSite: 'lax', secure: false })
-        }
+        // if (process.env.NODE_ENV === 'production') {
+        //     res.cookie('auth', token, { httpOnly: true, sameSite: 'none', secure: true })
+        // } else {
+        //     res.cookie('auth', token, { httpOnly: true, sameSite: 'lax', secure: false })
+        // }
         res.status(200).send(user);
     } catch (err) {
         next(err);

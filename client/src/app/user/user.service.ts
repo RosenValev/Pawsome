@@ -12,26 +12,22 @@ export class UserService {
   private API = 'http://localhost:3000/users'
 
   register(payload: { username: string, email: string, password: string, repeatPassword: string }) {
-    return this.http.post<User>(`${this.API}/register`, payload);
+    return this.http.post<User>(`${this.API}/register`, payload, { observe: 'response', responseType: 'json' });
   }
 
   login(payload: { email: string, password: string }) {
-    return this.http.post<User>(`${this.API}/login`, payload, { observe: 'response' })
+    return this.http.post<User>(`${this.API}/login`, payload, { observe: 'response', responseType: 'json' })
   }
 
-
-  getJwtToken(): void {
-    localStorage.getItem('auth');
+  getJwtToken(): string | null {
+    return sessionStorage.getItem('auth');
   }
 
   setJwtToken(token: string): void {
-    return localStorage.setItem('auth', token);
+    return sessionStorage.setItem('auth', token);
   }
 
   clearJwtToken(): void {
-    return localStorage.removeItem('jwtToken');
+    return sessionStorage.removeItem('auth');
   }
-
-
 }
-

@@ -12,32 +12,30 @@ export class ResponseInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         request = request.clone({
             withCredentials: true,
+            setHeaders: {
+                auth: `${this.userService.getJwtToken()}`,
+                'Content-Type': 'application/json'
+            }
         });
         return next.handle(request).pipe(
             tap((event: HttpEvent<any>) => {
-                if (event instanceof HttpResponse) {
-                    const jwtToken = this.extractJwtTokenFromCookies(event);
-                    if (jwtToken) {
-                        this.userService.setJwtToken(jwtToken);
-                    }
+                if (event instanceof HttpResponse && request.url.endsWith('login')) {
+                    this.userService.setJwtToken(event.body.token)
                 }
             })
         );
     }
-
-    private extractJwtTokenFromCookies(event: HttpResponse<any>): string | null {
-        const cookies = event.headers.get('Set-Cookie');
-        debugger
-        if (cookies) {
-            const jwtCookie = cookies.split(';').find(cookie => cookie.trim().startsWith('auth='));
-            if (jwtCookie) {
-                return jwtCookie.split('=')[1];
-            }
-        }
-        return null;
-    }
-
-
+    
+    // private extractJwtTokenFromCookies(event: HttpResponse<any>): string | null {
+    //     const cookies = event.headers.get('Set-Cookie');
+    //     if (cookies) {
+    //         const jwtCookie = cookies.split(';').find(cookie => cookie.trim().startsWith('auth='));
+    //         if (jwtCookie) {
+    //             return jwtCookie.split('=')[1];
+    //         }
+    //     }
+    //     return null;
+    // }
 }
 
 export const ResponseInterceptorProvider: Provider = {
