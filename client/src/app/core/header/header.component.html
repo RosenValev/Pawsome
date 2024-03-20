@@ -11,6 +11,7 @@
         </ul>
     </div>
     <div class="sing-in">
-        <a routerLink="/sign-in" class="btn">sign in</a>
+        <a routerLink="/sign-in" *ngIf="!(isAuthenticated$ | async)" class="btn btn-sign-in">signin</a>
+        <a *ngIf="(isAuthenticated$ | async)" (click)="logoutHandler()" class="btn btn-logout">logout</a>
     </div>
 </header>

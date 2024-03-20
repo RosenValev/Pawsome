@@ -70,7 +70,7 @@ const login = async (req, res, next) => {
 }
 
 const logout = async (req, res) => {
-    const token = req.cookies.auth;
+    // const token = req.cookies.auth;
     try {
         res.clearCookie('auth');
         res.status(200).json({ message: 'Logged out!' });

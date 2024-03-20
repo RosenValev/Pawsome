@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { passwordMatch } from 'src/app/shared/passwordMatch';
 import { emailPattern } from 'src/app/shared/emailPattern';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -12,7 +13,8 @@ import { emailPattern } from 'src/app/shared/emailPattern';
 export class AuthComponent implements OnInit {
   constructor(
     private userService: UserService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -50,8 +52,9 @@ export class AuthComponent implements OnInit {
   registerHandler() {
     if (this.signUpForm.valid) {
       this.userService.register(this.signUpForm?.value).subscribe(result => {
-        console.log(result)
+        console.log(result);
         this.signUpForm.reset();
+        this.router.navigate(['/']);
       })
     }
   };
@@ -61,6 +64,7 @@ export class AuthComponent implements OnInit {
       this.userService.login(this.signInForm?.value).subscribe(result => {
         console.log(result)
         this.signInForm.reset();
+        this.router.navigate(['/']);
       })
     }
   };

@@ -20,12 +20,15 @@ export class ResponseInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(
             tap((event: HttpEvent<any>) => {
                 if (event instanceof HttpResponse && request.url.endsWith('login')) {
-                    this.userService.setJwtToken(event.body.token)
+                    this.userService.setJwtToken(event.body.token);
+                }
+                if (event instanceof HttpResponse && request.url.endsWith('logout')) {
+                    this.userService.clearJwtToken();
                 }
             })
         );
     }
-    
+
     // private extractJwtTokenFromCookies(event: HttpResponse<any>): string | null {
     //     const cookies = event.headers.get('Set-Cookie');
     //     if (cookies) {

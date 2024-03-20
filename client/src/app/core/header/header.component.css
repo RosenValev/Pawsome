@@ -49,6 +49,8 @@
     color: #fff;
     text-transform: uppercase;
     border-radius: 15px;
+    cursor: pointer;
+    
 }
 
 .btn:hover {

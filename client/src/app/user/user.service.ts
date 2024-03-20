@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../types/user';
+import { BehaviorSubject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,30 @@ export class UserService {
 
   private API = 'http://localhost:3000/users'
 
+  private isAuthenticated$$ = new BehaviorSubject<boolean>(false);
+  public isAuthenticated$ = this.isAuthenticated$$.asObservable()
+
+
   register(payload: { username: string, email: string, password: string, repeatPassword: string }) {
     return this.http.post<User>(`${this.API}/register`, payload, { observe: 'response', responseType: 'json' });
   }
 
   login(payload: { email: string, password: string }) {
     return this.http.post<User>(`${this.API}/login`, payload, { observe: 'response', responseType: 'json' })
+      .pipe(
+        tap(res => {
+          this.isAuthenticated$$.next(true);
+        })
+      )
+  }
+
+  logout() {
+    return this.http.post(`${this.API}/logout`, '')
+      .pipe(
+        tap(res => {
+          this.isAuthenticated$$.next(false);
+        })
+      );
   }
 
   getJwtToken(): string | null {
