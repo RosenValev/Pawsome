@@ -4,7 +4,6 @@ import { MainComponent } from "./main/main.component";
 
 const routes: Routes = [
     { path: 'blog', component: MainComponent },
-    // { path: 'booking', component: BookingComponent }
 ]
 
 @NgModule({

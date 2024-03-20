@@ -8,6 +8,7 @@
             <li><a href="#">About us</a></li>
             <li><a routerLink="/blog">Blog</a></li>
             <li><a href="#">Contact</a></li>
+            <li *ngIf="(isAuthenticated$ | async)"><a routerLink="/my-profile">My Profile</a></li>
         </ul>
     </div>
     <div class="sing-in">
