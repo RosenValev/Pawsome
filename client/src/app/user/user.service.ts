@@ -4,38 +4,51 @@ import { User } from '../types/user';
 import { BehaviorSubject, tap } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  private API = 'http://localhost:3000/users'
+  private API = 'http://localhost:3000/users';
 
   private isAuthenticated$$ = new BehaviorSubject<boolean>(false);
-  public isAuthenticated$ = this.isAuthenticated$$.asObservable()
+  public isAuthenticated$ = this.isAuthenticated$$.asObservable();
 
-
-  register(payload: { username: string, email: string, password: string, repeatPassword: string }) {
-    return this.http.post<User>(`${this.API}/register`, payload, { observe: 'response', responseType: 'json' });
+  setIsAuthenticated(state: boolean) {
+    this.isAuthenticated$$.next(state);
   }
 
-  login(payload: { email: string, password: string }) {
-    return this.http.post<User>(`${this.API}/login`, payload, { observe: 'response', responseType: 'json' })
+  register(payload: {
+    username: string;
+    email: string;
+    password: string;
+    repeatPassword: string;
+  }) {
+    return this.http.post<User>(`${this.API}/register`, payload, {
+      observe: 'response',
+      responseType: 'json',
+    });
+  }
+
+  login(payload: { email: string; password: string }) {
+    return this.http
+      .post<User>(`${this.API}/login`, payload, {
+        observe: 'response',
+        responseType: 'json',
+      })
       .pipe(
-        tap(res => {
-          this.isAuthenticated$$.next(true);
+        tap((res) => {
+          this.setIsAuthenticated(true);
         })
-      )
+      );
   }
 
   logout() {
-    return this.http.post(`${this.API}/logout`, '')
-      .pipe(
-        tap(res => {
-          this.isAuthenticated$$.next(false);
-        })
-      );
+    return this.http.post(`${this.API}/logout`, '').pipe(
+      tap((res) => {
+        this.setIsAuthenticated(false);
+      })
+    );
   }
 
   getJwtToken(): string | null {
