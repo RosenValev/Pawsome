@@ -3,6 +3,7 @@ const blogController = require('../controllers/blog.js');
 const authMiddleware = require('../utils/authMiddleware.js');
 
 blogRouter.get('/', blogController.getAllBlogPosts);
-blogRouter.post('/create', authMiddleware, blogController.createPost);
+blogRouter.get('/:id', blogController.getBlogPostById);
+blogRouter.post('/create', authMiddleware, blogController.createBlogPost);
 
 module.exports = blogRouter;
