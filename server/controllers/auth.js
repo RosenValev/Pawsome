@@ -56,7 +56,7 @@ const login = async (req, res, next) => {
         user = bsonToJson(user);
         user = removePassword(user);
         const token = jwt.generateToken({ id: user._id });
-        user = {...user, token};
+        user = { ...user, token };
 
         // if (process.env.NODE_ENV === 'production') {
         //     res.cookie('auth', token, { httpOnly: true, sameSite: 'none', secure: true })
@@ -75,7 +75,7 @@ const logout = async (req, res) => {
         res.clearCookie('auth');
         res.status(200).json({ message: 'Logged out!' });
     } catch (err) {
-        res.send(err)
+        next(err);
     }
 }
 

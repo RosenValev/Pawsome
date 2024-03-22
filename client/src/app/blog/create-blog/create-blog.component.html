@@ -1,11 +1,13 @@
 <div class="container site-section">
     <div class="booking-container">
-        <form>
+        <form [formGroup]="postNewBlogFrom" (ngSubmit)="postFormHandler()">
             <h1>Share your story</h1>
-            <input type=" text" class="form-control" formControlName="title" id="title" placeholder="Title">
-            <input type="text" class="form-control" formControlName="subTitle" id="subTitle" placeholder="Subtitle">
-            <input type="text" class="form-control" formControlName="imageUrl" id="imageUrl" placeholder="Image">
-            <textarea class="form-control" id="text" formControlName="text" placeholder="Your text"></textarea>
+            <input type=" text" class="form-control" formControlName="title" id="title" placeholder="Title" required>
+            <input type="text" class="form-control" formControlName="subTitle" id="subTitle" placeholder="Subtitle"
+                required>
+            <input type="text" class="form-control" formControlName="imageUrl" id="imageUrl" placeholder="Image"
+                required>
+            <textarea class="form-control" id="text" formControlName="text" placeholder="Your text" required></textarea>
             <button type="submit" class="btn">Post</button>
         </form>
         <div class="img-wrapper"></div>

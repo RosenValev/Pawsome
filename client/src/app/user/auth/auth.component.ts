@@ -23,8 +23,8 @@ export class AuthComponent implements OnInit {
   };
 
   rightPanelActive: boolean = false;
-  signUpForm!: FormGroup;
-  signInForm!: FormGroup;
+  declare signUpForm: FormGroup;
+  declare signInForm: FormGroup;
 
   signUpFormInitialize() {
     this.signUpForm = this.fb.group({
