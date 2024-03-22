@@ -21,10 +21,10 @@ export class CreateBlogComponent implements OnInit {
     this.postNewBlogFromInitialize();
   }
 
-  declare postNewBlogFrom: FormGroup;
+  declare postNewBlogForm: FormGroup;
 
   postNewBlogFromInitialize() {
-    this.postNewBlogFrom = this.fb.group({
+    this.postNewBlogForm = this.fb.group({
       title: ['', [Validators.required]],
       subTitle: ['', [Validators.required]],
       imageUrl: ['', [Validators.required]],
@@ -33,11 +33,14 @@ export class CreateBlogComponent implements OnInit {
   }
 
   postFormHandler() {
-    if (this.postNewBlogFrom.valid) {
+    if (this.postNewBlogForm.valid) {
       const token = this.userService.getJwtToken();
-      console.log({ ...this.postNewBlogFrom?.value, token })
+      const payload = { ...this.postNewBlogForm?.value, token };
+      console.log(payload);
 
-
+      // this.blogService.createNewBlogPost(payload).subscribe(result => {
+      //   console.log(result)
+      // });
       // this.postNewBlogFrom.reset();
       // this.router.navigate(['/blog']);
     }
