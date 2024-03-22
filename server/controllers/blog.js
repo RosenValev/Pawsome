@@ -53,16 +53,37 @@ const deleteBlogPostById = async (req, res) => {
         if (!deletedBlogPost) {
             return res.status(404).json({ message: `Blog post not found! with ID ${id}` });
         }
-        res.status(200).json({ message: `Blog post with ID ${id} deleted successfully` })
+        res.status(200).json({ message: `Blog post with ID ${id} deleted successfully` });
     } catch (error) {
-        next(error)
+        next(error);
     }
 }
+
+const editBlogPostById = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const { title, subTitle, imageUrl, text, token } = req.body
+        const decodedToken = await jwt.verifyToken(token);
+        const updatedBlogPost = await Blog.findByIdAndUpdate(
+            id,
+            { title, subTitle, imageUrl, text, owner: decodedToken.id },
+            { new: true, runValidators: true },
+        );
+        if (!updatedBlogPost) {
+            return res.status(404).json({ message: `Blog post not found! with ID ${id}` });
+        }
+        res.status(200).json(updatedBlogPost);
+    } catch (error) {
+        next(error);
+    }
+}
+
 
 
 module.exports = {
     createBlogPost,
     getAllBlogPosts,
     getBlogPostById,
-    deleteBlogPostById
+    deleteBlogPostById,
+    editBlogPostById
 }
