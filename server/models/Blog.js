@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const postSchema = new mongoose.Schema({
+const blogSchema = new mongoose.Schema({
     title: {
         type: String,
         required: [true, 'title is required'],
@@ -11,8 +11,8 @@ const postSchema = new mongoose.Schema({
     },
     imageUrl: {
         type: String,
-        required: [true, 'image is required'],
-        match: [/^https?:\/\//, 'Invalid URL'],
+        required: [true, 'imageUrl is required'],
+        // match: [/^https?:\/\//, 'Invalid URL'],   
     },
     text: {
         type: String,
@@ -32,5 +32,5 @@ const postSchema = new mongoose.Schema({
     },
 }, { timestamps: true });
 
-const Post = mongoose.model('Post', postSchema);
-module.exports = Post;
+const Blog = mongoose.model('Blog', blogSchema);
+module.exports = Blog;
