@@ -13,7 +13,19 @@ const createPost = async (req, res) => {
         res.status(200).json(createdPost)
 
     } catch (error) {
-        console.log(error)
+        next(error)
+    }
+}
+
+const getAllBlogPosts = async (req, res) => {
+    try {
+        const AllPosts = await Blog.find().populate('owner');
+        if (!AllPosts) {
+            return res.status(404).json({ message: 'Posts not found' })
+        }
+        res.status(200).json(AllPosts)
+    } catch (error) {
+        next(error)
     }
 }
 
@@ -21,4 +33,5 @@ const createPost = async (req, res) => {
 
 module.exports = {
     createPost,
+    getAllBlogPosts
 }
