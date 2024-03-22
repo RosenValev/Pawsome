@@ -46,9 +46,23 @@ const getBlogPostById = async (req, res) => {
 }
 
 
+const deleteBlogPostById = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const deletedBlogPost = await Blog.findByIdAndDelete(id).lean();
+        if (!deletedBlogPost) {
+            return res.status(404).json({ message: `Blog post not found! with ID ${id}` });
+        }
+        res.status(200).json({ message: `Blog post with ID ${id} deleted successfully` })
+    } catch (error) {
+        next(error)
+    }
+}
+
 
 module.exports = {
     createBlogPost,
     getAllBlogPosts,
-    getBlogPostById
+    getBlogPostById,
+    deleteBlogPostById
 }

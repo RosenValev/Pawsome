@@ -5,5 +5,7 @@ const authMiddleware = require('../utils/authMiddleware.js');
 blogRouter.get('/', blogController.getAllBlogPosts);
 blogRouter.get('/:id', blogController.getBlogPostById);
 blogRouter.post('/create', authMiddleware, blogController.createBlogPost);
+blogRouter.delete('/:id/delete', blogController.deleteBlogPostById);
+
 
 module.exports = blogRouter;
