@@ -5,13 +5,15 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BlogRoutingModule } from './blog-routing.module';
 import { CreateBlogComponent } from './create-blog/create-blog.component';
+import { CurrentBlogComponent } from './current-blog/current-blog.component';
 
 
 
 @NgModule({
   declarations: [
     MainComponent,
-    CreateBlogComponent
+    CreateBlogComponent,
+    CurrentBlogComponent
   ],
   imports: [
     CommonModule, RouterModule, ReactiveFormsModule, BlogRoutingModule

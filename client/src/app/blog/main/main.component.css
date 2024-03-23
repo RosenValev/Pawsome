@@ -103,3 +103,10 @@ article p {
     color: var(--main-grey-color);
     padding-bottom: 3rem;
 }
+
+.no-posts {
+    font-size: 3.8rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--main-grey-color);
+}

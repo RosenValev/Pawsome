@@ -16,79 +16,22 @@
             </div>
         </div>
 
+        <div *ngIf="blogPosts?.length === 0" class="no-posts">There are no blog posts...</div>
+
         <div class="blogs-container grid grid-3">
-            <article>
-                <div class="img-wrapper">
-                    <img src="../../../assets/blog/blog2.jpg" alt="image">
-                </div>
-                <div class="text-container">
-                    <h3>How Often Do You Walk Your Dog? Find Right Balance</h3>
-                    <p>Walking your dog is not just a mundance chore</p>
-                    <a href="" class="btn">Read more &rarr;</a>
-                </div>
-            </article>
-
-            <article>
-                <div class="img-wrapper">
-                    <img src="../../../assets/blog/blog2.jpg" alt="image">
-                </div>
-                <div class="text-container">
-                    <h3>How Often Do You Walk Your Dog? Find Right Balance</h3>
-                    <p>Walking your dog is not just a mundance chore</p>
-                    <a href="" class="btn">Read more</a>
-                </div>
-            </article>
-
-            <article>
-                <div class="img-wrapper">
-                    <img src="../../../assets/blog/blog2.jpg" alt="image">
-                </div>
-                <div class="text-container">
-                    <h3>How Often Do You Walk Your Dog? Find Right Balance</h3>
-                    <p>Walking your dog is not just a mundance chore</p>
-                    <a href="" class="btn">Read more</a>
-                </div>
-            </article>
-
-            <article>
-                <div class="img-wrapper">
-                    <img src="../../../assets/blog/blog2.jpg" alt="image">
-                </div>
-                <div class="text-container">
-                    <h3>How Often Do You Walk Your Dog? Find Right Balance</h3>
-                    <p>Walking your dog is not just a mundance chore</p>
-                    <a href="" class="btn">Read more</a>
-                </div>
-            </article>
-
-            <article>
-                <div class="img-wrapper">
-                    <img src="../../../assets/blog/blog2.jpg" alt="image">
-                </div>
-                <div class="text-container">
-                    <h3>How Often Do You Walk Your Dog? Find Right Balance</h3>
-                    <p>Walking your dog is not just a mundance chore</p>
-                    <a href="" class="btn">Read more</a>
-                </div>
-            </article>
-
-            <article>
-                <div class="img-wrapper">
-                    <img src="../../../assets/blog/blog2.jpg" alt="image">
-                </div>
-                <div class="text-container">
-                    <h3>How Often Do You Walk Your Dog? Find Right Balance</h3>
-                    <p>Walking your dog is not just a mundance chore</p>
-                    <a href="" class="btn">Read more</a>
-                </div>
-            </article>
-
+            <ng-container *ngIf="blogPosts?.length !== 0" ; else noPosts>
+                <article *ngFor="let blog of blogPosts">
+                    <div class="img-wrapper">
+                        <img src="../../../assets/blog/blog2.jpg" alt="image">
+                    </div>
+                    <div class="text-container">
+                        <h3>{{blog.title}}</h3>
+                        <p>{{blog.subTitle}}</p>
+                        <a [routerLink]="blog._id" class="btn">Read more &rarr;</a>
+                    </div>
+                </article>
+            </ng-container>
         </div>
 
-
-
     </div>
-
-
-
 </section>

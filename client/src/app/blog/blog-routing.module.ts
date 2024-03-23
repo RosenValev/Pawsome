@@ -3,9 +3,16 @@ import { RouterModule, Routes } from "@angular/router";
 import { MainComponent } from "./main/main.component";
 import { CreateBlogComponent } from "./create-blog/create-blog.component";
 import { AuthGuard } from "../guards/auth.guard";
+import { CurrentBlogComponent } from "./current-blog/current-blog.component";
 
 const routes: Routes = [
-    { path: 'blog', component: MainComponent },
+    {
+        path: 'blog',
+        children: [
+            { path: '', pathMatch: 'full', component: MainComponent },
+            { path: ':blogId', component: CurrentBlogComponent },
+        ]
+    },
     { path: 'create-blog', component: CreateBlogComponent, canActivate: [AuthGuard] },
 ]
 
