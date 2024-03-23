@@ -11,6 +11,8 @@ export class UserService {
 
   private API = 'http://localhost:3000/users';
 
+  declare user: User | undefined;
+
   private isAuthenticated$$ = new BehaviorSubject<boolean>(false);
   public isAuthenticated$ = this.isAuthenticated$$.asObservable();
 
@@ -39,6 +41,7 @@ export class UserService {
       .pipe(
         tap((res) => {
           this.setIsAuthenticated(true);
+          this.user = res.body as User;
         })
       );
   }
@@ -47,6 +50,7 @@ export class UserService {
     return this.http.post(`${this.API}/logout`, '').pipe(
       tap((res) => {
         this.setIsAuthenticated(false);
+        this.user = undefined;
       })
     );
   }
