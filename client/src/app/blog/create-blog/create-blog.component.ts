@@ -18,12 +18,12 @@ export class CreateBlogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.postNewBlogFromInitialize();
+    this.postNewBlogFormInitialize();
   }
 
   declare postNewBlogForm: FormGroup;
 
-  postNewBlogFromInitialize() {
+  postNewBlogFormInitialize() {
     this.postNewBlogForm = this.fb.group({
       title: ['', [Validators.required]],
       subTitle: ['', [Validators.required]],

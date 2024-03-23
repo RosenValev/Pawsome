@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BlogPost } from '../types/blog-post';
 import { BlogPostCreate } from '../types/blog-create';
 
 @Injectable({
@@ -19,5 +18,26 @@ export class BlogService {
     })
   }
 
+  // TODO :id
+  editBlogPost(payload: { title: string, subTitle: string, imageUrl: string, text: string, token: string }) {
+    return this.http.put<BlogPostCreate>(`${this.API}/:id/edit`, payload, {
+      observe: 'response',
+      responseType: 'json',
+    })
+  }
+
+  getAllBlogPosts() {
+    return this.http.get(this.API);
+  }
+
+  // TODO :id
+  getBlogPostById() {
+    return this.http.get(`${this.API}/:id`);
+  }
+
+  // TODO :id
+  deleteBlogPost() {
+    return this.http.delete(`${this.API}/:id/delete`);
+  }
 
 }

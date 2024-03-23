@@ -3,12 +3,35 @@
         <form [formGroup]="postNewBlogForm" (ngSubmit)="postFormHandler()">
             <h1>Share your story</h1>
             <input type=" text" class="form-control" formControlName="title" id="title" placeholder="Title" required>
+            <ng-container *ngIf="postNewBlogForm.get('title')?.touched">
+                <p class="error" *ngIf="postNewBlogForm.get('title')?.hasError('required')">
+                    This field is required!
+                </p>
+            </ng-container>
+
             <input type="text" class="form-control" formControlName="subTitle" id="subTitle" placeholder="Subtitle"
                 required>
+            <ng-container *ngIf="postNewBlogForm.get('subTitle')?.touched">
+                <p class="error" *ngIf="postNewBlogForm.get('subTitle')?.hasError('required')">
+                    This field is required!
+                </p>
+            </ng-container>
+
             <input type="text" class="form-control" formControlName="imageUrl" id="imageUrl" placeholder="Image"
                 required>
+            <ng-container *ngIf="postNewBlogForm.get('imageUrl')?.touched">
+                <p class="error" *ngIf="postNewBlogForm.get('imageUrl')?.hasError('required')">
+                    This field is required!
+                </p>
+            </ng-container>
+
             <textarea class="form-control" id="text" formControlName="text" placeholder="Your text" required></textarea>
-            <button type="submit" class="btn">Post</button>
+            <ng-container *ngIf="postNewBlogForm.get('text')?.touched">
+                <p class="error" *ngIf="postNewBlogForm.get('text')?.hasError('required')">
+                    This field is required!
+                </p>
+            </ng-container>
+            <button type="submit" [disabled]="postNewBlogForm.invalid" class="btn">Post</button>
         </form>
         <div class="img-wrapper"></div>
     </div>
