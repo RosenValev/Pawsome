@@ -31,13 +31,13 @@ export class BlogService {
   }
 
   // TODO :id
-  getBlogPostById() {
-    return this.http.get(`${this.API}/:id`);
+  getBlogPostById(id: string) {
+    return this.http.get(`${this.API}/${id}`);
   }
 
   // TODO :id
-  deleteBlogPost() {
-    return this.http.delete(`${this.API}/:id/delete`);
+  deleteBlogPost(id: string) {
+    return this.http.delete(`${this.API}/${id}/delete`);
   }
 
 }
