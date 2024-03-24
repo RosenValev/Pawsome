@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 export interface BlogPost {
     _id: string,
     title: string;
@@ -6,7 +8,7 @@ export interface BlogPost {
     text: string;
     likes: string[];
     commentList: string[];
-    owner: object;
+    owner: User,
     createdAt: string;
     updatedAt: string;
 }

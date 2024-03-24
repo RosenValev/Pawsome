@@ -19,8 +19,8 @@ export class BlogService {
   }
 
   // TODO :id
-  editBlogPost(payload: { title: string, subTitle: string, imageUrl: string, text: string, token: string }) {
-    return this.http.put<BlogPostCreate>(`${this.API}/:id/edit`, payload, {
+  editBlogPost(id: string, payload: { title: string, subTitle: string, imageUrl: string, text: string, token: string }) {
+    return this.http.put<BlogPostCreate>(`${this.API}/${id}/edit`, payload, {
       observe: 'response',
       responseType: 'json',
     })
