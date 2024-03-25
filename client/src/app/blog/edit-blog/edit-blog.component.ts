@@ -4,7 +4,6 @@ import { BlogService } from '../blog.service';
 import { BlogPost } from 'src/app/types/blog-post';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/user/user.service';
-import { User } from 'src/app/types/user';
 
 @Component({
   selector: 'app-edit-blog',
@@ -45,9 +44,8 @@ export class EditBlogComponent implements OnInit {
       const payload = { ...this.form?.value, token };
       this.blogService.editBlogPost(this.id, payload as any).subscribe((data) => {
         console.log(data)
+        this.router.navigate([`/blog/${this.id}`]);
       })
-      this.router.navigate([`/blog/${this.id}`]);
-      // this.router.navigate(['/blog']);
     }
   }
 
