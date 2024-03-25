@@ -19,7 +19,7 @@
         <div *ngIf="blogPosts?.length === 0" class="no-posts">There are no blog posts...</div>
 
         <div class="blogs-container grid grid-3">
-            <ng-container *ngIf="blogPosts?.length !== 0" ; else noPosts>
+            <ng-container *ngIf="blogPosts?.length !== 0">
                 <article *ngFor="let blog of blogPosts">
                     <div class="img-wrapper">
                         <img src={{blog.imageUrl}} alt="image">

@@ -78,10 +78,11 @@
 article {
     box-shadow: 0 2px 8px 0 rgb(0, 0, 0, 0.3);
     border-radius: 15px;
+    position: relative;
 }
 
 article .img-wrapper img {
-    height: 50rem;
+    height: 45rem;
 }
 
 article:hover {
@@ -106,7 +107,13 @@ article p {
     font-size: 1.6rem;
     line-height: 1.2;
     color: var(--main-grey-color);
-    padding-bottom: 3rem;
+    padding-bottom: 3.5rem;
+}
+
+article a {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
 }
 
 .no-posts {
