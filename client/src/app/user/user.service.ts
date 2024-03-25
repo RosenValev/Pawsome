@@ -7,11 +7,12 @@ import { BehaviorSubject, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
+
   constructor(private http: HttpClient) { }
 
   private API = 'http://localhost:3000/users';
-
-  declare user: User | undefined;
+  JSW_TOKEN_KEY = 'auth'
+  USER_KEY = 'auth-user'
 
   private isAuthenticated$$ = new BehaviorSubject<boolean>(false);
   public isAuthenticated$ = this.isAuthenticated$$.asObservable();
@@ -41,7 +42,7 @@ export class UserService {
       .pipe(
         tap((res) => {
           this.setIsAuthenticated(true);
-          this.user = res.body as User;
+          this.saveUser(res.body as User);
         })
       );
   }
@@ -50,20 +51,47 @@ export class UserService {
     return this.http.post(`${this.API}/logout`, '').pipe(
       tap((res) => {
         this.setIsAuthenticated(false);
-        this.user = undefined;
+        this.cleanUser();
       })
     );
   }
 
   getJwtToken(): string | null {
-    return sessionStorage.getItem('auth');
+    return sessionStorage.getItem(this.JSW_TOKEN_KEY);
   }
 
   setJwtToken(token: string): void {
-    return sessionStorage.setItem('auth', token);
+    return sessionStorage.setItem(this.JSW_TOKEN_KEY, token);
   }
 
   clearJwtToken(): void {
-    return sessionStorage.removeItem('auth');
+    return sessionStorage.removeItem(this.JSW_TOKEN_KEY);
   }
+
+  // LOCAL STORAGE STATE FOR CURRENT LOGGED USER
+  saveUser(user: User) {
+    localStorage.removeItem(this.USER_KEY);
+    return localStorage.setItem(this.USER_KEY, JSON.stringify(user));
+  }
+
+  getUser() {
+    const user = localStorage.getItem(this.USER_KEY);
+    if (user) {
+      return JSON.parse(user);
+    }
+  }
+
+  cleanUser(): void {
+    return localStorage.clear();
+  }
+
+  isLoggedIn(): boolean {
+    const user = localStorage.getItem(this.USER_KEY);
+    if (user) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

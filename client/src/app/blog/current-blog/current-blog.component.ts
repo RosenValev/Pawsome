@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BlogService } from '../blog.service';
 import { BlogPost } from 'src/app/types/blog-post';
 import { UserService } from 'src/app/user/user.service';
+import { User } from 'src/app/types/user';
 
 @Component({
   selector: 'app-current-blog',
@@ -13,6 +14,7 @@ export class CurrentBlogComponent implements OnInit {
 
   blog = {} as BlogPost;
   isOwner: boolean = false;
+  user: User | undefined;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -25,7 +27,8 @@ export class CurrentBlogComponent implements OnInit {
 
       this.blogService.getBlogPostById(id).subscribe((blog) => {
         this.blog = blog as BlogPost;
-        this.isOwner = this.userService.user?._id === this.blog.owner._id
+        this.user = this.userService.getUser();
+        this.isOwner = this.user?._id === this.blog.owner._id
         debugger
       })
     });
