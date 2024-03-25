@@ -67,7 +67,7 @@ const editBlogPostById = async (req, res) => {
         const updatedBlogPost = await Blog.findByIdAndUpdate(
             id,
             { title, subTitle, imageUrl, text, owner: decodedToken.id },
-            { new: true, runValidators: true },
+            { includeResultMetadata: true, new: true },
         );
         if (!updatedBlogPost) {
             return res.status(404).json({ message: `Blog post not found! with ID ${id}` });

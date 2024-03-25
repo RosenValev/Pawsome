@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BlogRoutingModule } from './blog-routing.module';
 import { CreateBlogComponent } from './create-blog/create-blog.component';
 import { CurrentBlogComponent } from './current-blog/current-blog.component';
+import { EditBlogComponent } from './edit-blog/edit-blog.component';
 
 
 
@@ -13,7 +14,8 @@ import { CurrentBlogComponent } from './current-blog/current-blog.component';
   declarations: [
     MainComponent,
     CreateBlogComponent,
-    CurrentBlogComponent
+    CurrentBlogComponent,
+    EditBlogComponent
   ],
   imports: [
     CommonModule, RouterModule, ReactiveFormsModule, BlogRoutingModule

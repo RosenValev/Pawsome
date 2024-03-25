@@ -1,0 +1,40 @@
+<div class="container site-section">
+    <div class="edit-container">
+        <form [formGroup]="form" (ngSubmit)="editFormHandler()">
+            <h1>Share your story</h1>
+            <input type=" text" class="form-control" formControlName="title" id="title" placeholder="Title" required>
+            <ng-container *ngIf="form.get('title')?.touched">
+                <p class="error" *ngIf="form.get('title')?.hasError('required')">
+                    This field is required!
+                </p>
+            </ng-container>
+
+            <input type="text" class="form-control" formControlName="subTitle" id="subTitle" placeholder="Subtitle"
+                required>
+            <ng-container *ngIf="form.get('subTitle')?.touched">
+                <p class="error" *ngIf="form.get('subTitle')?.hasError('required')">
+                    This field is required!
+                </p>
+            </ng-container>
+
+            <input type="text" class="form-control" formControlName="imageUrl" id="imageUrl" placeholder="Image"
+                required>
+            <ng-container *ngIf="form.get('imageUrl')?.touched">
+                <p class="error" *ngIf="form.get('imageUrl')?.hasError('required')">
+                    This field is required!
+                </p>
+            </ng-container>
+
+            <textarea class="form-control" id="text" formControlName="text" placeholder="Your text" required></textarea>
+            <ng-container *ngIf="form.get('text')?.touched">
+                <p class="error" *ngIf="form.get('text')?.hasError('required')">
+                    This field is required!
+                </p>
+            </ng-container>
+            <button type="submit" [disabled]="form.invalid" class="btn">Post</button>
+        </form>
+        <div class="img-wrapper">
+            <img src={{form.value.imageUrl}} alt="">
+        </div>
+    </div>
+</div>

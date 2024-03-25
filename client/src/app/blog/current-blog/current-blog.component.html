@@ -6,7 +6,7 @@
             <p class="text">{{blog.text}}</p>
             <p class="author">Author: {{blog.owner.username}}</p>
             <div class="buttons" *ngIf="isOwner">
-                <a href="" class="btn">Edit</a>
+                <a routerLink="edit" class="btn">Edit</a>
             </div>
         </div>
         <div class="img-wrapper">
