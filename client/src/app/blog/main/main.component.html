@@ -22,7 +22,7 @@
             <ng-container *ngIf="blogPosts?.length !== 0" ; else noPosts>
                 <article *ngFor="let blog of blogPosts">
                     <div class="img-wrapper">
-                        <img src="../../../assets/blog/blog2.jpg" alt="image">
+                        <img src={{blog.imageUrl}} alt="image">
                     </div>
                     <div class="text-container">
                         <h3>{{blog.title}}</h3>

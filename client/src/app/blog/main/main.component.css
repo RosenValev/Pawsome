@@ -21,7 +21,7 @@
 
 .img-wrapper img {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
     box-shadow: 0 2px 8px 0 rgb(0, 0, 0, 0.3);
 }
 
@@ -80,6 +80,10 @@ article {
     border-radius: 15px;
 }
 
+article .img-wrapper img {
+    height: 50rem;
+}
+
 article:hover {
     transform: scale(1.01);
     transition: 0.2s ease-in-out;
@@ -88,6 +92,7 @@ article:hover {
 
 article .text-container {
     padding: 2rem;
+    padding-bottom: 3rem;
 }
 
 article h3 {

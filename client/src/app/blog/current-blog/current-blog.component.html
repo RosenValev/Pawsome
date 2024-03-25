@@ -1,1 +1,16 @@
-<p>current-blog works!</p>
+<div class="container site-section">
+    <div class="create-blog-container">
+        <div class="info">
+            <h3>{{blog.title}}</h3>
+            <h4>{{blog.subTitle}}</h4>
+            <p class="text">{{blog.text}}</p>
+            <p class="author">Author: {{blog.owner.username}}</p>
+            <div class="buttons" *ngIf="isOwner">
+                <a href="" class="btn">Edit</a>
+            </div>
+        </div>
+        <div class="img-wrapper">
+            <img src={{blog.imageUrl}} alt="image">
+        </div>
+    </div>
+</div>

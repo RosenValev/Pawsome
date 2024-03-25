@@ -29,7 +29,6 @@ export class CurrentBlogComponent implements OnInit {
         this.blog = blog as BlogPost;
         this.user = this.userService.getUser();
         this.isOwner = this.user?._id === this.blog.owner._id
-        debugger
       })
     });
   }
