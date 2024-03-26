@@ -5,6 +5,7 @@ import { CreateBlogComponent } from "./create-blog/create-blog.component";
 import { AuthGuard } from "../guards/auth.guard";
 import { CurrentBlogComponent } from "./current-blog/current-blog.component";
 import { EditBlogComponent } from "./edit-blog/edit-blog.component";
+import { OwnerGuard } from "../guards/owner.guard";
 
 const routes: Routes = [
     {
@@ -12,7 +13,7 @@ const routes: Routes = [
         children: [
             { path: '', pathMatch: 'full', component: MainComponent },
             { path: ':blogId', component: CurrentBlogComponent },
-            { path: ':blogId/edit', component: EditBlogComponent },
+            { path: ':blogId/edit', component: EditBlogComponent, canActivate: [AuthGuard, OwnerGuard] },
         ]
     },
     { path: 'create-blog', component: CreateBlogComponent, canActivate: [AuthGuard] },
