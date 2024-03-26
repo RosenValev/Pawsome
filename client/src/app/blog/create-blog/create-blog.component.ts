@@ -37,10 +37,10 @@ export class CreateBlogComponent implements OnInit {
       const token = this.userService.getJwtToken();
       const payload = { ...this.postNewBlogForm?.value, token };
       this.blogService.createNewBlogPost(payload).subscribe(result => {
-        console.log(result)
+        console.log(result);
+        this.postNewBlogForm.reset();
+        this.router.navigate(['/blog']);
       });
-      this.postNewBlogForm.reset();
-      this.router.navigate(['/blog']);
     }
   }
 }

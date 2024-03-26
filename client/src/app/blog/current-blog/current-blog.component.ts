@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BlogService } from '../blog.service';
 import { BlogPost } from 'src/app/types/blog-post';
 import { UserService } from 'src/app/user/user.service';
@@ -15,11 +15,14 @@ export class CurrentBlogComponent implements OnInit {
   blog = {} as BlogPost;
   isOwner: boolean = false;
   user: User | undefined;
+  author: string | undefined;
+  showDeleteModal: boolean = false;
 
   constructor(
     private activeRoute: ActivatedRoute,
     private blogService: BlogService,
-    private userService: UserService) { }
+    private userService: UserService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((data) => {
@@ -29,7 +32,24 @@ export class CurrentBlogComponent implements OnInit {
         this.blog = blog as BlogPost;
         this.user = this.userService.getUser();
         this.isOwner = this.user?._id === this.blog.owner._id
+        this.author = this.blog.owner.username;
       })
     });
+  }
+
+  openDeleteModal(): void {
+    this.showDeleteModal = true;
+  }
+
+  cancelDelete() {
+    this.showDeleteModal = false;
+  }
+
+  deleteRecord() {
+    this.blogService.deleteBlogPost(this.blog._id).subscribe((res) => {
+      console.log(res);
+      this.router.navigate(['/blog']);
+      this.showDeleteModal = false;
+    })
   }
 }

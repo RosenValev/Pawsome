@@ -68,7 +68,7 @@
 /* ARTICLE */
 .grid {
     display: grid;
-    gap: 4rem;
+    gap: 5rem;
 }
 
 .grid-3 {
@@ -82,7 +82,7 @@ article {
 }
 
 article .img-wrapper img {
-    height: 45rem;
+    height: 40rem;
 }
 
 article:hover {
