@@ -1,54 +1,74 @@
 <div class="site-section site-home ">
-    <section class="welcome container">
-        <div class="text">
-            <h1>Pawsome Purffect Care</h1>
-            <p>We provide quality pet care and personalized treatment plans for your pet.</p>
-            <a routerLink="/booking" class="btn">Make an appointment</a>
-        </div>
-        <div class="img-wrapper">
-            <div class="cat">
-                <img src="../../assets/home-cat-img.png" alt="cat-img">
+    <div class="container">
+        <section class="welcome">
+            <div class="text">
+                <h1>Pawsome Purffect Care</h1>
+                <p>We provide quality pet care and personalized treatment plans for your pet.</p>
+                <a routerLink="/booking" class="btn">Make an appointment</a>
             </div>
-            <div class="small-dog">
-                <img src="../../assets/home-small-dog.png" alt="small-dog-img">
+            <div class="img-wrapper">
+                <div class="cat">
+                    <img src="../../assets/home-cat-img.png" alt="cat-img">
+                </div>
+                <div class="small-dog">
+                    <img src="../../assets/home-small-dog.png" alt="small-dog-img">
+                </div>
+                <div class="big-dog">
+                    <img src="../../assets/home-big-dog.png" alt="big-dog-img">
+                </div>
             </div>
-            <div class="big-dog">
-                <img src="../../assets/home-big-dog.png" alt="big-dog-img">
-            </div>
-        </div>
-    </section>
+        </section>
 
 
-    <section class="service container">
-        <div class="text">
-            <h3>Optimal Health for Furry Friends: Comprehensive Veterinary Services</h3>
-            <a href="" class="btn">View more</a>
+        <section class="service">
+            <div class="text">
+                <h3>Optimal Health for Furry Friends: Comprehensive Veterinary Services</h3>
+                <a href="" class="btn">View more</a>
+            </div>
+            <div class="service-container">
+                <div class="service-info">
+                    <i class="fa-solid fa-paw"></i>
+                    <h5>Physical Exam</h5>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, enim.</p>
+                    <a href="" class="btn">View more &rarr;</a>
+                </div>
+                <div class="service-info">
+                    <i class="fa-solid fa-sink"></i>
+                    <h5>Skin Care</h5>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, enim.</p>
+                    <a href="" class="btn">View more &rarr;</a>
+                </div>
+                <div class="service-info">
+                    <i class="fa-solid fa-syringe"></i>
+                    <h5>Pet Vaccination</h5>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, enim.</p>
+                    <a href="" class="btn">View more &rarr;</a>
+                </div>
+                <div class="service-info">
+                    <i class="fa-solid fa-bone"></i>
+                    <h5>Pet Nutrition</h5>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, enim.</p>
+                    <a href="" class="btn">View more &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+
+        <h3 class="h3-last-posts" *ngIf="blogPosts?.length !== 0">
+            Check latest posts shared from our subscribers...
+        </h3>
+
+        <div class="grid-3" *ngIf="blogPosts?.length !== 0">
+            <article *ngFor="let blog of blogPosts">
+                <div class="img-wrapper">
+                    <img src="{{blog.imageUrl}}" alt="image">
+                </div>
+                <div class="text-container">
+                    <h3>{{blog.title}}</h3>
+                    <p>{{blog.subTitle}}</p>
+                    <a routerLink="/blog/{{blog._id}}" class="btn">Read more &rarr;</a>
+                </div>
+            </article>
         </div>
-        <div class="service-container">
-            <div class="service-info">
-                <i class="fa-solid fa-paw"></i>
-                <h5>Physical Exam</h5>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, enim.</p>
-                <a href="" class="btn">View more &rarr;</a>
-            </div>
-            <div class="service-info">
-                <i class="fa-solid fa-sink"></i>
-                <h5>Skin Care</h5>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, enim.</p>
-                <a href="" class="btn">View more &rarr;</a>
-            </div>
-            <div class="service-info">
-                <i class="fa-solid fa-syringe"></i>
-                <h5>Pet Vaccination</h5>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, enim.</p>
-                <a href="" class="btn">View more &rarr;</a>
-            </div>
-            <div class="service-info">
-                <i class="fa-solid fa-bone"></i>
-                <h5>Pet Nutrition</h5>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, enim.</p>
-                <a href="" class="btn">View more &rarr;</a>
-            </div>
-        </div>
-    </section>
+    </div>
 </div>

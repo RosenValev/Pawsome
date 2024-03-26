@@ -18,7 +18,6 @@ export class BlogService {
     })
   }
 
-  // TODO :id
   editBlogPost(id: string, payload: { title: string, subTitle: string, imageUrl: string, text: string, token: string }) {
     return this.http.put<BlogPostCreate>(`${this.API}/${id}/edit`, payload, {
       observe: 'response',
@@ -30,12 +29,14 @@ export class BlogService {
     return this.http.get(this.API);
   }
 
-  // TODO :id
+  getLastThreeBlogPosts(){
+    return this.http.get(`${this.API}/last-three`)
+  }
+
   getBlogPostById(id: string) {
     return this.http.get(`${this.API}/${id}`);
   }
 
-  // TODO :id
   deleteBlogPost(id: string) {
     return this.http.delete(`${this.API}/${id}/delete`);
   }

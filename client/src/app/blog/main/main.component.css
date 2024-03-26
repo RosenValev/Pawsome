@@ -79,6 +79,7 @@ article {
     box-shadow: 0 2px 8px 0 rgb(0, 0, 0, 0.3);
     border-radius: 15px;
     position: relative;
+    overflow: hidden;
 }
 
 article .img-wrapper img {

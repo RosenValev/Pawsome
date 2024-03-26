@@ -3,7 +3,6 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from
 import { UserService } from "../user/user.service";
 import { User } from "../types/user";
 import { BlogService } from "../blog/blog.service";
-import { Observable, catchError, switchMap } from "rxjs";
 import { BlogPost } from "../types/blog-post";
 
 @Injectable({

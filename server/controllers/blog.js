@@ -29,6 +29,19 @@ const getAllBlogPosts = async (req, res) => {
     }
 }
 
+const getLastThreeBlogPosts = async (req, res) => {
+    try {
+        const LastThreePosts = await Blog.find().sort({ createdAt: -1 }).limit(3).populate('owner')
+        if (!LastThreePosts) {
+            return res.status(404).json({ message: 'Posts not found' })
+        }
+        res.status(200).json(LastThreePosts)
+    } catch (error) {
+        next(error)
+    }
+}
+
+
 const getBlogPostById = async (req, res) => {
     const { id } = req.params;
     try {
@@ -85,5 +98,6 @@ module.exports = {
     getAllBlogPosts,
     getBlogPostById,
     deleteBlogPostById,
-    editBlogPostById
+    editBlogPostById,
+    getLastThreeBlogPosts
 }
