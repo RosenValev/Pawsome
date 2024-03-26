@@ -71,6 +71,10 @@
     align-self: center;
 }
 
+.buttons-owner {
+    display: inline-block;
+}
+
 .btn {
     font-size: 1.6rem;
     padding: 1.2rem 2.8rem;
@@ -79,12 +83,20 @@
     color: var(--main-grey-color);
     border-radius: 20px;
     transition: 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 .btn-danger {
     margin-left: 1rem;
     background-color: #ff8787;
-    cursor: pointer;
+}
+
+.btn-edit {
+    margin-left: 1rem;
+}
+
+.btn-back {
+    background-color: #9BEFE0;
 }
 
 .btn:hover {
@@ -93,6 +105,8 @@
     background-color: #cdf7f0;
     box-shadow: 0 2px 8px 0 rgb(0, 0, 0, 0.3);
 }
+
+
 
 /* DELETE MODAL */
 

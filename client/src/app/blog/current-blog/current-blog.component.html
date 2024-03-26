@@ -5,9 +5,12 @@
             <h4>{{blog.subTitle}}</h4>
             <p class="text">{{blog.text}}</p>
             <p class="author">Author: {{author}}</p>
-            <div class="buttons" *ngIf="isOwner">
-                <a routerLink="edit" class="btn">Edit</a>
-                <a (click)="openDeleteModal()" class="btn btn-danger">Delete</a>
+            <div class="buttons">
+                <a routerLink="/blog" class="btn btn-back">Go back</a>
+                <div class="buttons-owner" *ngIf="isOwner">
+                    <a routerLink="edit" class="btn btn-edit">Edit</a>
+                    <a (click)="openDeleteModal()" class="btn btn-danger">Delete</a>
+                </div>
             </div>
         </div>
         <div class="img-wrapper">
