@@ -41,6 +41,21 @@ const getLastThreeBlogPosts = async (req, res) => {
     }
 }
 
+const getPersonalBlogPostsById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const user = await Blog.findById(id)
+        if (!user) {
+            return res.status(404).json({ message: `User not found! with ID ${id}` });
+        }
+
+        const myPersonalBlogPosts = await Blog.find({ owner: id }).populate('owner')
+        res.status(200).json(myPersonalBlogPosts);
+    } catch (error) {
+        next(error)
+    }
+};
+
 
 const getBlogPostById = async (req, res) => {
     const { id } = req.params;
@@ -99,5 +114,6 @@ module.exports = {
     getBlogPostById,
     deleteBlogPostById,
     editBlogPostById,
-    getLastThreeBlogPosts
+    getLastThreeBlogPosts,
+    getPersonalBlogPostsById
 }
