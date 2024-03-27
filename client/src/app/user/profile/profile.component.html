@@ -1,1 +1,36 @@
-<p>profile works!</p>
+<div class="site-section site-my-profile">
+    <div class="container">
+        <div class="posts-profile-container">
+
+            <div class="posts-container">
+                <div *ngIf="blogPosts?.length === 0">
+                    <p class="no-posts">You don't have any posts yet...</p>
+                </div>
+                <div class="grid-2" *ngIf="blogPosts?.length !== 0">
+                    <article *ngFor="let blog of blogPosts">
+                        <div class="img-wrapper">
+                            <img src="{{blog.imageUrl}}" alt="image">
+                        </div>
+                        <div class="text-container">
+                            <h3>{{blog.title}}</h3>
+                            <p>{{blog.subTitle}}</p>
+                            <a routerLink="/blog/{{blog._id}}" class="btn">Read more</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="profile-info">
+                <div class="avatar">
+                    <img src="../../../assets/profile.png" alt="Avatar">
+                </div>
+                <div class="details">
+                    <h2>{{user.username}}</h2>
+                    <p><span>Email:</span> {{user.email}}</p>
+                    <p><span>Registered:</span> {{formatDate(user.createdAt)}}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

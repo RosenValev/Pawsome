@@ -7,20 +7,27 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
 
   blogPosts: BlogPost[] | null = [];
-  user!: User
+  user!: User;
 
-  constructor(private blogService: BlogService, private userService: UserService) { }
+  constructor(
+    private blogService: BlogService,
+    private userService: UserService,
+  ) { }
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
     this.blogService.getPersonalBlogPosts(this.user?._id).subscribe((posts) => {
       this.blogPosts = posts as BlogPost[];
-      console.log(this.blogPosts)
     })
   }
+
+  formatDate(dateString: string) {
+    return dateString.slice(0, 10);
+  }
+
 }
