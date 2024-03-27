@@ -1,4 +1,5 @@
 const Blog = require('../models/Blog.js');
+const User = require('../models/User.js');
 const jwt = require('../utils/jwt.js');
 
 
@@ -44,7 +45,7 @@ const getLastThreeBlogPosts = async (req, res) => {
 const getPersonalBlogPostsById = async (req, res) => {
     try {
         const { id } = req.params;
-        const user = await Blog.findById(id)
+        const user = await User.findById(id)
         if (!user) {
             return res.status(404).json({ message: `User not found! with ID ${id}` });
         }

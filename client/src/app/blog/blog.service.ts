@@ -29,8 +29,12 @@ export class BlogService {
     return this.http.get(this.API);
   }
 
-  getLastThreeBlogPosts(){
+  getLastThreeBlogPosts() {
     return this.http.get(`${this.API}/last-three`)
+  }
+
+  getPersonalBlogPosts(id: string) {
+    return this.http.get(`${this.API}/${id}/own-posts`);
   }
 
   getBlogPostById(id: string) {
