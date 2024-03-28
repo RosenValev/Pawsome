@@ -7,17 +7,19 @@ import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 
 import { HomeComponent } from './home/home.component';
-import { ErrorComponent } from './error/error.component';
+import { ErrorComponent } from './page-not-found/error.component';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BlogModule } from './blog/blog.module';
 import { ResponseInterceptorProvider } from './user/auth.interceptor';
+import { PageServicesComponent } from './page-services/page-services.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ErrorComponent,
+    PageServicesComponent,
   ],
   imports: [
     BrowserModule,
