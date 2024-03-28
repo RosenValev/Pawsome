@@ -1,8 +1,9 @@
 .background-img {
-    background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    background-image: url(https://cdn.dribbble.com/users/1175431/screenshots/6188233/404-error-dribbble-800x600.gif);
     height: 45rem;
     background-position: center;
-    width: 100%;
+    background-repeat: no-repeat;
+    /* width: 100%; */
 }
 
 .contant_box_404 {
@@ -12,10 +13,10 @@
     color: var(--main-grey-color);
 }
 
-.contant_box_404 h1 {
+/* .contant_box_404 h1 {
     font-size: 6.4rem;
     padding-bottom: 1rem;
-}
+} */
 
 .contant_box_404 h3 {
     font-size: 3.4rem;
@@ -30,7 +31,15 @@
 .link_404 {
     color: #fff;
     font-size: 1.4rem;
-    padding: 1rem 2rem;
-    background: #39ac31;
+    font-weight: 500;
+    padding: 1.2rem 2rem;
+    background: var(--main-blue-color);
     border-radius: 1rem;
+}
+
+.link_404:hover {
+    color: var(--main-grey-color);
+    transition: 0.2s ease-in-out;
+    background-color: #cdf7f0;
+    box-shadow: 0 2px 8px 0 rgb(0, 0, 0, 0.3);
 }
