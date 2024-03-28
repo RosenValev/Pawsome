@@ -1,0 +1,36 @@
+.background-img {
+    background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 45rem;
+    background-position: center;
+    width: 100%;
+}
+
+.contant_box_404 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--main-grey-color);
+}
+
+.contant_box_404 h1 {
+    font-size: 6.4rem;
+    padding-bottom: 1rem;
+}
+
+.contant_box_404 h3 {
+    font-size: 3.4rem;
+    padding-bottom: 2rem;
+}
+
+.contant_box_404 p {
+    font-size: 1.7rem;
+    padding-bottom: 2rem;
+}
+
+.link_404 {
+    color: #fff;
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    background: #39ac31;
+    border-radius: 1rem;
+}
