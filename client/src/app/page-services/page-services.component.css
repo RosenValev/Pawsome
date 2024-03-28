@@ -1,0 +1,146 @@
+.site-services .welcome {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 6rem 0;
+}
+
+.welcome .text {
+    flex: 0 1 40%;
+    padding-left: 1rem;
+}
+
+/* .welcome .img-wrapper {
+    flex: 0 1 63%;
+} */
+
+.text h1 {
+    color: var(--main-blue-color);
+    line-height: 1.15;
+    font-size: 5.4rem;
+    padding-bottom: 2rem;
+}
+
+
+.dog {
+    position: relative;
+    z-index: 1;
+}
+
+.dog:hover::before {
+    background-color: #cdf7f0;
+}
+
+.dog img {
+    height: 41rem;
+    width: auto;
+}
+
+.dog::before {
+    content: '';
+    display: block;
+    height: 24rem;
+    width: 24rem;
+    background-color: #9BEFE0;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    bottom: 0%;
+}
+
+.dog::after {
+    content: '';
+    display: block;
+    height: 3rem;
+    width: 3rem;
+    background-color: #DCF237;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    bottom: 15%;
+    left: -15%;
+}
+
+/* Article */
+.services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+}
+
+.services article {
+    width: 85%;
+    box-shadow: 0 2px 8px 0 rgb(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    padding: 3rem;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.physical-exam {
+    background-color: #F0FCFA;
+}
+
+.dental-care {
+    background-color: #FEF3EF;
+}
+
+.flea-tick-control {
+    background-color: #FFFAE7;
+}
+
+.pet-nutrition {
+    background-color: #FEDC6E;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.heading {
+    font-size: 3rem;
+    padding-bottom: 2rem;
+}
+
+.subheading {
+    font-size: 1.85rem;
+    padding-bottom: 1rem;
+    font-weight: 500;
+}
+
+.text {
+    font-size: 1.7rem;
+    padding-bottom: 3rem;
+    line-height: 1.2;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--main-blue-color);
+    padding-bottom: 2.2rem;
+}
+
+.btn {
+    align-self: flex-start;
+    font-size: 1.6rem;
+    background-color: black;
+    /* border: 2px solid black; */
+    color: #fff;
+    padding: 1.2rem 2.4rem;
+    border-radius: 20px;
+}
+
+.btn:hover {
+    background-color: var(--main-blue-color);
+    box-shadow: 0 2px 8px 0 rgb(0, 0, 0, 0.6);
+}
+
+.img-wrapper img {
+    height: 30rem;
+    width: auto;
+}
