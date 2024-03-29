@@ -7,6 +7,9 @@
                 <p class="error" *ngIf="postNewBlogForm.get('title')?.hasError('required')">
                     This field is required!
                 </p>
+                <p class="error" *ngIf="postNewBlogForm.get('title')?.errors?.['empty']">
+                    Can`t send white spaces.
+                </p>
             </ng-container>
 
             <input type="text" class="form-control" formControlName="subTitle" id="subTitle" placeholder="Subtitle"
@@ -14,6 +17,9 @@
             <ng-container *ngIf="postNewBlogForm.get('subTitle')?.touched">
                 <p class="error" *ngIf="postNewBlogForm.get('subTitle')?.hasError('required')">
                     This field is required!
+                </p>
+                <p class="error" *ngIf="postNewBlogForm.get('subTitle')?.errors?.['empty']">
+                    Can`t send white spaces.
                 </p>
             </ng-container>
 
@@ -23,12 +29,18 @@
                 <p class="error" *ngIf="postNewBlogForm.get('imageUrl')?.hasError('required')">
                     This field is required!
                 </p>
+                <p class="error" *ngIf="postNewBlogForm.get('imageUrl')?.errors?.['empty']">
+                    Can`t send white spaces.
+                </p>
             </ng-container>
 
             <textarea class="form-control" id="text" formControlName="text" placeholder="Your text" required></textarea>
             <ng-container *ngIf="postNewBlogForm.get('text')?.touched">
                 <p class="error" *ngIf="postNewBlogForm.get('text')?.hasError('required')">
                     This field is required!
+                </p>
+                <p class="error" *ngIf="postNewBlogForm.get('text')?.errors?.['empty']">
+                    Can`t send white spaces.
                 </p>
             </ng-container>
             <button type="submit" [disabled]="postNewBlogForm.invalid" class="btn">Post</button>

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BlogService } from '../blog.service';
 import { UserService } from 'src/app/user/user.service';
+import { trimNotEmptyValidator } from 'src/app/shared/trimInpuit';
 
 @Component({
   selector: 'app-create-blog',
@@ -25,10 +26,10 @@ export class CreateBlogComponent implements OnInit {
 
   postNewBlogFormInitialize() {
     this.postNewBlogForm = this.fb.group({
-      title: ['', [Validators.required]],
-      subTitle: ['', [Validators.required]],
-      imageUrl: ['', [Validators.required]],
-      text: ['', [Validators.required]],
+      title: ['', [Validators.required, trimNotEmptyValidator()]],
+      subTitle: ['', [Validators.required, trimNotEmptyValidator()]],
+      imageUrl: ['', [Validators.required, trimNotEmptyValidator()]],
+      text: ['', [Validators.required, trimNotEmptyValidator()]],
     })
   }
 

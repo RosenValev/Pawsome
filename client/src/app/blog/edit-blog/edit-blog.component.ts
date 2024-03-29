@@ -4,6 +4,7 @@ import { BlogService } from '../blog.service';
 import { BlogPost } from 'src/app/types/blog-post';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/user/user.service';
+import { trimNotEmptyValidator } from 'src/app/shared/trimInpuit';
 
 @Component({
   selector: 'app-edit-blog',
@@ -21,10 +22,10 @@ export class EditBlogComponent implements OnInit {
     private router: Router) { }
 
   form = this.fb.group({
-    title: ['', [Validators.required]],
-    subTitle: ['', [Validators.required]],
-    imageUrl: ['', [Validators.required]],
-    text: ['', [Validators.required]],
+    title: ['', [Validators.required, trimNotEmptyValidator()]],
+    subTitle: ['', [Validators.required, trimNotEmptyValidator()]],
+    imageUrl: ['', [Validators.required, trimNotEmptyValidator()]],
+    text: ['', [Validators.required, trimNotEmptyValidator()]],
   })
 
   ngOnInit(): void {
