@@ -5,6 +5,8 @@ import { BlogPost } from 'src/app/types/blog-post';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/user/user.service';
 import { trimNotEmptyValidator } from 'src/app/shared/trimInpuit';
+import { catchError, throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-blog',
@@ -31,10 +33,16 @@ export class EditBlogComponent implements OnInit {
   ngOnInit(): void {
     this.activeRoute.params.subscribe((data) => {
       this.id = data['blogId'];
-      this.blogService.getBlogPostById(this.id).subscribe((blog) => {
-        const { title, subTitle, imageUrl, text } = blog as BlogPost
-
-        this.form.setValue({ title, subTitle, imageUrl, text })
+      this.blogService.getBlogPostById(this.id).pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 404 || 500) {
+            this.router.navigate(['/404']);
+          }
+          return throwError(error);
+        })
+      ).subscribe((blog) => {
+        const { title, subTitle, imageUrl, text } = blog as BlogPost;
+        this.form.setValue({ title, subTitle, imageUrl, text });
       })
     });
   }
@@ -44,7 +52,7 @@ export class EditBlogComponent implements OnInit {
       const token = this.userService.getJwtToken();
       const payload = { ...this.form?.value, token };
       this.blogService.editBlogPost(this.id, payload as any).subscribe((data) => {
-        console.log(data)
+        console.log(data);
         this.router.navigate([`/blog/${this.id}`]);
       })
     }

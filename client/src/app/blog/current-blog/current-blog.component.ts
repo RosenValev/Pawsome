@@ -4,6 +4,8 @@ import { BlogService } from '../blog.service';
 import { BlogPost } from 'src/app/types/blog-post';
 import { UserService } from 'src/app/user/user.service';
 import { User } from 'src/app/types/user';
+import { catchError, throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-current-blog',
@@ -28,10 +30,17 @@ export class CurrentBlogComponent implements OnInit {
     this.activeRoute.params.subscribe((data) => {
       const id = data['blogId']
 
-      this.blogService.getBlogPostById(id).subscribe((blog) => {
+      this.blogService.getBlogPostById(id).pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 404 || 500) {
+            this.router.navigate(['/404']);
+          }
+          return throwError(error);
+        })
+      ).subscribe((blog) => {
         this.blog = blog as BlogPost;
         this.user = this.userService.getUser();
-        this.isOwner = this.user?._id === this.blog.owner._id
+        this.isOwner = this.user?._id === this.blog.owner._id;
         this.author = this.blog.owner.username;
       })
     });

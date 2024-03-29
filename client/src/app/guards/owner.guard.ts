@@ -42,7 +42,6 @@ export class OwnerGuard implements CanActivate {
         return this.blogService.getBlogPostById(blogId).subscribe((blog) => {
             this.blog = blog as BlogPost
             this.isOwner = currentUser._id === this.blog.owner._id
-            debugger
             if (currentUser._id && this.blog.owner._id && this.isOwner) {
                 return true;
             } else {
