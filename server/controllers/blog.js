@@ -3,7 +3,7 @@ const User = require('../models/User.js');
 const jwt = require('../utils/jwt.js');
 
 
-const createBlogPost = async (req, res) => {
+const createBlogPost = async (req, res, next) => {
     try {
         const { title, subTitle, imageUrl, text, token } = req.body
         if (!title || !subTitle || !imageUrl || !text || !token) {
@@ -18,7 +18,7 @@ const createBlogPost = async (req, res) => {
     }
 }
 
-const getAllBlogPosts = async (req, res) => {
+const getAllBlogPosts = async (req, res, next) => {
     try {
         const AllPosts = await Blog.find().populate('owner');
         if (!AllPosts) {
@@ -30,7 +30,7 @@ const getAllBlogPosts = async (req, res) => {
     }
 }
 
-const getLastThreeBlogPosts = async (req, res) => {
+const getLastThreeBlogPosts = async (req, res, next) => {
     try {
         const LastThreePosts = await Blog.find().sort({ createdAt: -1 }).limit(3).populate('owner')
         if (!LastThreePosts) {
@@ -42,7 +42,7 @@ const getLastThreeBlogPosts = async (req, res) => {
     }
 }
 
-const getPersonalBlogPostsById = async (req, res) => {
+const getPersonalBlogPostsById = async (req, res, next) => {
     try {
         const { id } = req.params;
         const user = await User.findById(id)
@@ -58,7 +58,7 @@ const getPersonalBlogPostsById = async (req, res) => {
 };
 
 
-const getBlogPostById = async (req, res) => {
+const getBlogPostById = async (req, res, next) => {
     const { id } = req.params;
     try {
         if (!id) {
@@ -75,7 +75,7 @@ const getBlogPostById = async (req, res) => {
 }
 
 
-const deleteBlogPostById = async (req, res) => {
+const deleteBlogPostById = async (req, res, next) => {
     const { id } = req.params;
     try {
         const deletedBlogPost = await Blog.findByIdAndDelete(id).lean();
@@ -88,7 +88,7 @@ const deleteBlogPostById = async (req, res) => {
     }
 }
 
-const editBlogPostById = async (req, res) => {
+const editBlogPostById = async (req, res, next) => {
     const { id } = req.params;
     try {
         const { title, subTitle, imageUrl, text, token } = req.body
