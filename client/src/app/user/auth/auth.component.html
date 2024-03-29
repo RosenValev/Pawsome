@@ -48,6 +48,12 @@
                         Password dont match!
                     </p>
                 </ng-container>
+
+                <ng-container *ngIf="errorMessage">
+                    <p class="error">
+                        {{errorMessage}}
+                    </p>
+                </ng-container>
                 <!-- <pre>
                     Form Error - {{ signUpForm.errors | json }}
                 </pre> -->
@@ -83,6 +89,12 @@
                     <p class="error" *ngIf="signInForm.get('password')?.hasError('minlength')">
                         Password should be at lest
                         {{signInForm.get('password')?.errors?.['minlength']['requiredLength']}} characters!
+                    </p>
+                </ng-container>
+
+                <ng-container *ngIf="errorMessage">
+                    <p class="error">
+                        {{errorMessage}}
                     </p>
                 </ng-container>
                 <button type="submit" [disabled]="signInForm.invalid">Sign In</button>

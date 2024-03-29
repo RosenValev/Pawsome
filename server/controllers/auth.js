@@ -12,7 +12,7 @@ const register = async (req, res, next) => {
     try {
         const duplicatedEmail = await User.findOne({ email });
         if (duplicatedEmail) {
-            return res.status(409).json({ message: `Email ${email} already in use` });
+            return res.status(409).json(`Email: ${email} is already existing`);
         }
 
         let createdUser = await User.create({ username, email, password, repeatPassword })
@@ -32,7 +32,7 @@ const register = async (req, res, next) => {
             let field = err.message.split("index: ")[1];
             field = field.split(" dup key")[0];
             field = field.substring(0, field.lastIndexOf("_"));
-            res.status(409).send({ message: `This ${field} is already registered!` });
+            res.status(409).send(`This ${field} is already registered!`);
             return;
         }
         next(err);
@@ -45,12 +45,12 @@ const login = async (req, res, next) => {
     try {
         let user = await User.findOne({ email });
         if (!user) {
-            return res.status(400).json({ message: "Email or password don't match!" });
+            return res.status(400).json("Email or password don't match!");
         }
 
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
-            return res.status(400).json({ message: "Email or password don't match!" });
+            return res.status(400).json("Email or password don`t match!");
         }
 
         user = bsonToJson(user);

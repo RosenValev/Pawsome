@@ -23,6 +23,7 @@ export class AuthComponent implements OnInit {
   };
 
   rightPanelActive: boolean = false;
+  errorMessage: string = '';
   declare signUpForm: FormGroup;
   declare signInForm: FormGroup;
 
@@ -51,20 +52,31 @@ export class AuthComponent implements OnInit {
 
   registerHandler() {
     if (this.signUpForm.valid) {
-      this.userService.register(this.signUpForm?.value).subscribe(result => {
-        console.log(result);
-        this.signUpForm.reset();
-        this.router.navigate(['/']);
+      this.userService.register(this.signUpForm?.value).subscribe({
+        next: (result) => {
+          console.log(result);
+          this.signUpForm.reset();
+          this.router.navigate(['/']);
+        },
+        error: (error) => {
+          console.log(error);
+          this.errorMessage = error.error;
+        }
       })
     }
   };
 
   loginHandler() {
     if (this.signInForm.valid) {
-      this.userService.login(this.signInForm?.value).subscribe(result => {
-        console.log("FROM LOGIN", result);
-        this.signInForm.reset();
-        this.router.navigate(['/']);
+      this.userService.login(this.signInForm?.value).subscribe({
+        next: (result) => {
+          console.log("FROM LOGIN", result);
+          this.signInForm.reset();
+          this.router.navigate(['/']);
+        }, error: (error) => {
+          console.log(error);
+          this.errorMessage = error.error;
+        }
       })
     }
   };
