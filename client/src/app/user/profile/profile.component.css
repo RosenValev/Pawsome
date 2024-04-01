@@ -124,7 +124,11 @@ article a {
 .details p {
     font-size: 1.6rem;
     font-weight: 500;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.8rem;
+}
+
+.details p:last-of-type {
+    padding-bottom: 3rem;
 }
 
 .details span {
