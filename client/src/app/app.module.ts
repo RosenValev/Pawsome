@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BlogModule } from './blog/blog.module';
 import { ResponseInterceptorProvider } from './user/auth.interceptor';
 import { PageServicesComponent } from './page-services/page-services.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PageServicesComponent } from './page-services/page-services.component';
     HomeComponent,
     ErrorComponent,
     PageServicesComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,

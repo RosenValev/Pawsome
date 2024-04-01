@@ -41,13 +41,13 @@ footer {
 }
 
 .left-side h5 {
-    font-size: 2rem;
+    font-size: 1.9rem;
 }
 
 .left-side p,
 .left-side a {
     font-size: 1.7rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--main-grey-color);
 }
 
@@ -74,7 +74,7 @@ footer {
 
 ul a {
     color: var(--main-grey-color);
-    font-weight: 500;
+    font-weight: 600;
 }
 
 ul a:hover {
