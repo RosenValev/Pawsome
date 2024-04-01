@@ -11,4 +11,5 @@ export interface BlogPost {
     owner: User;
     createdAt: string;
     updatedAt: string;
+    token: string;
 }

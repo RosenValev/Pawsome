@@ -51,7 +51,7 @@ export class EditBlogComponent implements OnInit {
     if (this.form.valid) {
       const token = this.userService.getJwtToken();
       const payload = { ...this.form?.value, token };
-      this.blogService.editBlogPost(this.id, payload as any).subscribe((data) => {
+      this.blogService.editBlogPost(this.id, payload as BlogPost).subscribe((data) => {
         console.log(data);
         this.router.navigate([`/blog/${this.id}`]);
       })

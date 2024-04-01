@@ -32,7 +32,8 @@ export class OwnerGuard implements CanActivate {
             token: ""
         },
         createdAt: "",
-        updatedAt: ""
+        updatedAt: "",
+        token: "",
     }
     isOwner: boolean = false;
 
