@@ -2,7 +2,6 @@ footer {
     position: absolute;
     width: 100%;
     bottom: 0;
-    height: 20rem;
 }
 
 .site-section {
@@ -13,7 +12,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
 }
 
 .site-title img {
@@ -114,3 +113,10 @@ ul a:hover {
 .fa-youtube {
     color: #E82E2E;
 }
+
+.fa-solid{
+    color: #2E6FE8;
+    font-size: 2.2rem;
+    margin-right: 1rem;
+}
+
