@@ -40,3 +40,27 @@ body {
 .site-section {
     padding: 1rem;
 }
+
+@media screen and (max-width: 930px) {
+    html {
+        font-size: 56.25%;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    html {
+        font-size: 42.5%;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    html {
+        font-size: 37%;
+    }
+}

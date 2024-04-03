@@ -314,3 +314,91 @@ article a {
     font-size: 2.8rem;
     padding: 6rem 0 3rem;
 }
+
+@media screen and (max-width: 930px) {
+    .big-dog img {
+        height: 30rem;
+    }
+
+    .big-dog::before {
+        height: 22rem;
+        width: 22rem;
+    }
+
+    .small-dog img {
+        height: 14rem;
+    }
+
+    .small-dog::before {
+        height: 11rem;
+        width: 11rem;
+    }
+
+    .cat img {
+        height: 16rem;
+    }
+
+    .cat::before {
+        height: 12.5rem;
+        width: 12.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .service .service-info {
+        padding: 1.2rem;
+        gap: 1.2rem;
+    }
+
+    .service .text h3 {
+        font-size: 3.4rem;
+    }
+
+    .text h1 {
+        font-size: 4.5rem;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .site-home .welcome {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 6rem 0;
+        gap: 5rem;
+    }
+
+    .welcome .text {
+        flex: 0 1 80%;
+        text-align: center;
+    }
+
+    .text h1 {
+        font-size: 6.5rem;
+    }
+
+    .service {
+        display: flex;
+        padding: 6rem 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .service .text {
+        flex: 0 1 80%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .service .service-container {
+        flex: 0 1 95%;
+    }
+
+    .grid-3 {
+        gap: 3rem;
+        grid-template-columns: 1fr;
+    }
+}
