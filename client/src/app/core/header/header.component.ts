@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/user/user.service';
 
@@ -11,8 +11,11 @@ import { UserService } from 'src/app/user/user.service';
 export class HeaderComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
   isAuthenticatedSubscription: Subscription | undefined;
+  isNavOpen: boolean = false;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router) { }
 
   ngOnInit(): void {
     // Subscribe to the isAuthenticated$ observable from the UserService
@@ -22,6 +25,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
           this.isAuthenticated = isAuthenticated;
         }
       );
+
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        // Close the navigation when navigation starts
+        this.isNavOpen = false;
+      }
+    });
   }
 
   ngOnDestroy(): void {
@@ -35,4 +45,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
     this.router.navigate(['/']);
   }
+
+  toggleNav(): void {
+    this.isNavOpen = !this.isNavOpen;
+  }
+
 }

@@ -1,22 +1,27 @@
-<header class="site-section site-header container">
+<header class="site-section site-header container" [ngClass]="{'nav-open': isNavOpen}">
     <div class="site-title">
         <a routerLink="/home"><img src="../../../assets/pawsome-log.png" alt="pawsome-logo">Pawsome</a>
     </div>
     <div class="navigation">
-        <ul>
+        <ul class="navigation-list">
             <li><a routerLink="/services">Services</a></li>
             <li><a routerLink="/about-us">About us</a></li>
             <li><a routerLink="/blog">Blog</a></li>
             <!-- <li><a href="#">Contact</a></li> -->
             <li *ngIf="(isAuthenticated)"><a routerLink="/my-profile">My Profile</a></li>
         </ul>
-    </div>
-    <div class="sing-in">
-        <div *ngIf="!(isAuthenticated)">
-            <a routerLink="/sign-in" class="btn btn-sign-in">signin</a>
+        <div class="sing-in">
+            <div *ngIf="!(isAuthenticated)">
+                <a routerLink="/sign-in" class="btn btn-sign-in">signin</a>
+            </div>
+            <div *ngIf="(isAuthenticated)">
+                <a (click)="logoutHandler()" class="btn btn-logout">logout</a>
+            </div>
         </div>
-        <div *ngIf="(isAuthenticated)">
-            <a (click)="logoutHandler()" class="btn btn-logout">logout</a>
-        </div>
     </div>
+
+    <button class="btn-mobile-nav" (click)="toggleNav()">
+        <i class="fa-solid fa-bars icon-mobile-nav" name="menu-outline"></i>
+        <i class="fa-solid fa-xmark icon-mobile-nav" name="close-outline"></i>
+    </button>
 </header>
