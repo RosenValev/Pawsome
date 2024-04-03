@@ -114,9 +114,24 @@ ul a:hover {
     color: #E82E2E;
 }
 
-.fa-solid{
+.fa-solid {
     color: #2E6FE8;
     font-size: 2.2rem;
     margin-right: 1rem;
 }
 
+@media screen and (max-width: 430px) {
+    .left-side h5 {
+        font-size: 1.7rem;
+    }
+
+    .right-side ul {
+        font-size: 2rem;
+        justify-content: flex-end;
+        gap: 2rem;
+    }
+
+    .socials {
+        gap: 2rem;
+    }
+}
