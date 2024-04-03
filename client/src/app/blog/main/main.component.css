@@ -123,3 +123,48 @@ article a {
     text-align: center;
     color: var(--main-grey-color);
 }
+
+@media screen and (max-width:680px) {
+    .grid {
+        gap: 3rem;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .intro-container {
+        padding: 2rem;
+    }
+
+    .intro-container h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero {
+        margin: 1rem 0;
+    }
+}
+
+@media screen and (max-width:420px) {
+    .intro-container {
+        padding: 1.2rem 0.9rem 2rem 0.9rem;
+    }
+
+    .intro-container h1 {
+        font-size: 2rem;
+    }
+
+    .grid {
+        gap: 1rem;
+    }
+
+    article .text-container {
+        padding: 1rem;
+        /* padding-bottom: 2rem; */
+    }
+
+    article p {
+        padding-bottom: 4.5rem;
+    }
+}
