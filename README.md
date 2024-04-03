@@ -8,6 +8,7 @@ Pawsome is a MEAN stack application designed for pet lovers. Whether you have a 
 - **Personal Area:** After successful login, registered users gain access to a personalized area where they can create, edit, and manage their pet-related content.
 - **Blog Post Editing:** Registered users have the ability to edit and update their blog posts, ensuring their content stays relevant and up-to-date.
 - **Community Engagement:** Join a vibrant community of pet enthusiasts and share valuable insights, experiences, and tips on pet ownership, love, and care.
+- **Responsive Design:**  Pawsome is designed to be fully responsive, ensuring a seamless experience across all devices.
 
 ## Getting Started
 To run Pawsome locally, follow these steps:
