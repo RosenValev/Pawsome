@@ -144,3 +144,22 @@ article a {
     color: var(--main-grey-color);
     font-weight: 500;
 }
+
+
+@media screen and (max-width : 900px) {
+    .posts-profile-container {
+        flex-direction: column;
+    }
+
+    .profile-info {
+        order: -1;
+        margin-bottom: 3rem;
+        align-self: center;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
